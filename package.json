@@ -1,0 +1,26 @@
+{
+  "name": "modoquiz",
+  "version": "1.0.0",
+  "description": "ModoQuiz Wice AS Docs",
+  "main": "index.js",
+  "scripts": {
+    "test": "ModoQuiz.hhp",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DruDro/ModoQuiz.git"
+  },
+  "author": "DruDro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DruDro/ModoQuiz/issues"
+  },
+  "homepage": "https://github.com/DruDro/ModoQuiz#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^1.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11"
+  }
+}

@@ -46,7 +46,7 @@ const gulp = require('gulp'),
             }
         },
         watch: {
-            html: 'src/articles/**/*.htm*',
+            html: ['src/articles/**/*.*','src/assets/partials/*.*'],
             js: 'src/assets/**/*.js',
             scss: 'src/assets/sass/*.scss',
             img: 'src/assets/images/**/*.*',
@@ -138,19 +138,19 @@ gulp.task('build', [
 
 
 gulp.task('watch', function () {
-    watch([path.watch.html], function (event, cb) {
+    watch(path.watch.html, function (event, cb) {
         gulp.start('html:build');
         gulp.start('chm:build');
     });
-    watch([path.watch.scss], function (event, cb) {
+    watch(path.watch.scss, function (event, cb) {
         gulp.start('style:build');
         gulp.start('chm:build');
     });
-    watch([path.watch.js], function (event, cb) {
+    watch(path.watch.js, function (event, cb) {
         gulp.start('js:build');
         gulp.start('chm:build');
     });
-    watch([path.watch.img], function (event, cb) {
+    watch(path.watch.img, function (event, cb) {
         gulp.start('image:build');
         gulp.start('chm:build');
     });

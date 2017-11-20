@@ -8,5 +8,9 @@ npm i
 ```
 ## Start Building
 ```
+npm start
+```
+or just
+```
 gulp
 ```

@@ -16,4 +16,14 @@ gulp
 ```
 ## File structure
 ### Articles
-Articles are located in the *<root>/src/articles* folder
+Articles are located in the *./src/articles* folder
+### Assets
+Assets, such as images, styles, javascript, etc. are located in the *./src/assets* folder
+#### Sass
+Styles are compiled from *.scss* files. Source scss files are located in the *./src/assets/sass* folder.
+The main scss file, that imports component styles, vendor styles, etc. is *style.scss*. It is compiled with gulp-sass to **style.css**, which is linked to in every HTML article.
+#### JavaScript
+JS files **are not concatenated** to a single. All JS files you want to include to HTML articles must be manually added to the *./src/assets/partials/[header\footer].html* - for the CHM format, or to the *./src/assets/partials/web[Header\Footer].html* - for the Web help format.
+## Output
+The **gulp** (gulp default) task runs **build** and **watch** tasks. Each time you save an article HTML file or an asset file, gulp compiles HTML, SASS, JS, images, as well as runs the HTML Help Workshop compiler to compile the %projectName%.chm file. 
+The **dist** folder contains *Web* and *CHM* help formats. 

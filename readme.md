@@ -29,5 +29,7 @@ JS files **are not concatenated** to a single file. All JS files you want to inc
 ## Output
 The **gulp** (gulp default) task runs **build** and **watch** tasks. Each time you save an article HTML file or an asset file, gulp compiles HTML, SASS, JS, images, as well as runs the HTML Help Workshop compiler to compile the %projectName%.chm file. 
 The **dist** folder contains *Web* and *CHM* help formats. 
+## Syntax Highlighting
+[Highlight.js](https://highlightjs.org/) is used. Several highlighting styles are included in the  *./src/assets/highlight.styles/* directory. To change the style, pick another style *.css, add _ in the beginning of its name, and put the file to the *./src/assets/sass/* folder. In the style.scss change the highlight style file name.
 ## File Naming
 It is highly recommended to give the chm, hhc, hhk, hhp files the same name as the folder containing the whole project. Since some functionality in the gulpfile.js uses the project root directory name to call such files. 

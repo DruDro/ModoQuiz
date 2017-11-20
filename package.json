@@ -19,7 +19,9 @@
   "homepage": "https://github.com/DruDro/ModoQuiz#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-file-include": "^1.2.0",
+    "gulp-run": "^1.7.1",
     "gulp-sass": "^3.1.0",
     "gulp-watch": "^4.3.11"
   }

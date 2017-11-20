@@ -16,19 +16,34 @@ const gulp = require('gulp'),
     run = require('gulp-run'),
     fs = require('fs'),
     p = require('path'),
+    proj = p.resolve(__dirname).substring(p.resolve(__dirname).lastIndexOf('\\') + 1),
+    hhp = `${proj}.hhp`,
+    hhc = `${proj}.hhc`,
     path = {
         root: p.resolve(__dirname),
         build: {
             html: 'articles/',
             js: 'assets/',
             css: 'assets/',
-            img: 'assets/images/'
+            img: 'assets/images/',
+            chm: 'dist',
+            web: {
+                articles: 'dist/web/articles/',
+                assets: 'dist/web/assets/',
+                index: 'dist/web/'
+            }
         },
         src: {
             html: 'src/articles/*.htm*',
             js: 'src/assets/**/*.js',
             scss: 'src/assets/sass/*.scss',
-            img: 'src/assets/images/**/*.*'
+            img: 'src/assets/images/**/*.*',
+            chm: `${proj}.chm`,
+            web: {
+                articles: 'articles/**/*.*',
+                assets: 'assets/**/*.*',
+                index: 'index.html'
+            }
         },
         watch: {
             html: 'src/articles/**/*.htm*',
@@ -38,9 +53,34 @@ const gulp = require('gulp'),
             hhc: '*.hhc'
         }
     },
-    proj = path.root.substring(path.root.lastIndexOf('\\') + 1),
-    hhp = `${proj}.hhp`,
-    hhc = `${proj}.hhc`;
+    get = (file) => {
+        return fs.readFileSync(file, 'utf8', (err, data) => {
+            if (err) console.error(err);
+            return data;
+        });
+    },
+    makeWeb = (req) => {
+        const hhToc = get(`${hhc}`);
+        const header = get(`src/assets/partials/webHeader.html`);
+        const footer = get(`src/assets/partials/webFooter.html`);
+        let html = hhToc
+            .substring(hhToc.indexOf('<UL>'))
+            .replace(/<OBJECT type=\"text\/sitemap\">/g, '<a')
+            .replace(/<param name=\"Name\" value=\"(.+?)\">/g, ' title="$1"')
+            .replace(/<param name=\"Local\" value=\"(.+?)\">/g, ' href="$1"')
+            .replace(/<\/OBJECT>/g, '></a>')
+            .replace(/\"\s*\n\t*\s*/g, '" ')
+            .replace(/<a\s*\n*/g, '<a ')
+            .replace(/<a title="(.+?)"(.+?)>/g, '<a title="$1"$2>$1');
+        html = html.substring(0, html.indexOf('</BODY>'));
+        html = `
+            ${header}
+            ${html}
+            ${footer}
+        `;
+        fs.writeFile('index.html', html, 'utf8', (err) => { if (err) console.log(err) });
+    }
+
 
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
@@ -75,40 +115,25 @@ gulp.task('chm:build', function () {
     return run(hhp).exec();
 });
 
-const get = (file) => {
-    return fs.readFileSync(file, 'utf8', (err, data) => {
-        if(err) console.error(err);
-        return data;
-    });
-}
-const makeWeb = (req) => {
-    const hhToc = get(`${hhc}`);
-    const header = get(`src/assets/partials/webHeader.html`);
-    const footer = get(`src/assets/partials/webFooter.html`);
-    let html = hhToc
-                    .substring(hhToc.indexOf('<UL>'))
-                    .replace(/<OBJECT type=\"text\/sitemap\">/g, '<a')
-                    .replace(/<param name=\"Name\" value=\"(.+?)\">/g, ' title="$1"')
-                    .replace(/<param name=\"Local\" value=\"(.+?)\">/g, ' href="$1"')
-                    .replace(/<\/OBJECT>/g, '></a>')
-                    .replace(/\"\s*\n\t*\s*/g, '" ')
-                    .replace(/<a\s*\n*/g, '<a ')
-                    .replace(/<a title="(.+?)"(.+?)>/g, '<a title="$1"$2>$1');
-    html = html.substring(0, html.indexOf('</BODY>'));
-    html = `
-        ${header}
-        ${html}
-        ${footer}
-    `;
-    fs.writeFile('index.html', html, 'utf8', (err) => { if(err) console.log(err) });
-}
+gulp.task('publish', function () {
+    gulp.src(path.src.web.articles)
+        .pipe(gulp.dest(path.build.web.articles));
+    gulp.src(path.src.web.assets)
+        .pipe(gulp.dest(path.build.web.assets));
+    gulp.src(path.src.web.index)
+        .pipe(gulp.dest(path.build.web.index));
+
+    gulp.src(path.src.chm)
+        .pipe(gulp.dest(path.build.chm));
+});
 
 gulp.task('build', [
     'js:build',
     'style:build',
     'html:build',
     'image:build',
-    'chm:build'
+    'chm:build',
+    'publish'
 ]);
 
 

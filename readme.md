@@ -14,3 +14,6 @@ or just
 ```
 gulp
 ```
+## File structure
+### Articles
+Articles are located in the *<root>/src/articles* folder

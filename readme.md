@@ -1,4 +1,6 @@
-# Getting Started
+# Gulp CHM builder
+## Install HTML Help Workshop
+[Download HTML Help Workshop](https://www.microsoft.com/en-us/download/details.aspx?id=21138) and install it.
 ## Install NodeJS
 [Download the latest NodeJS version](https://nodejs.org/uk/download/) and install it. 
 ## Install Dependencies

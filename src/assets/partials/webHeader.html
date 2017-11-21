@@ -32,6 +32,10 @@
             min-width:200px;
             vertical-align: middle;
             overflow: auto;
+            transition:all .15s ease-in-out;
+        }
+        .toc:hover {
+            background:#e0e0e0;
         }
         .toc h2 {
             padding-left:15px;
@@ -41,8 +45,9 @@
         .toc ul {
             margin: 0;
             padding: 0 0 0 15px;
-            display:block;
+            display:none;
             overflow:auto;
+            list-style:none;
         }
         .toc > ul {
             margin: 0;
@@ -51,9 +56,32 @@
             max-height: calc(100vh - 83px);
             overflow: auto;
             background: #fff;
+            display: block;
         }
         .toc ul a {
             text-decoration:none;
+        }
+        .toc li > i{
+            font-style:normal;
+            font-weight:700;
+            font-size:.9em;
+            color:#454545;
+            color:inherit;
+            display:inline-block;
+            width:15px;
+            margin:0 3px 0 0;
+        }
+        .toc li > i:before{
+            content:"▢";
+        }
+        .toc li.folder > i{
+           cursor:pointer;
+        }
+        .toc li.folder.open > i:before{
+            content:"▽";
+        }
+        .toc li.folder.closed > i:before{
+            content:"▶";
         }
         .frameholder {
             display: table-cell;
@@ -71,6 +99,7 @@
             padding: 0;
         }
     </style>
+    <script src="./assets/jquery-3.2.1.min.js"></script>
 </HEAD>
 
 <body>

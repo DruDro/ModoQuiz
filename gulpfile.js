@@ -1,5 +1,3 @@
-'use strict';
-
 const gulp = require('gulp'),
     watch = require('gulp-watch'),
     filerigger = require('gulp-file-include'),
@@ -79,7 +77,7 @@ const gulp = require('gulp'),
             ${footer}
         `;
         fs.writeFile('index.html', html, 'utf8', (err) => { if (err) console.log(err) });
-    }
+    };
 
 
 gulp.task('js:build', function () {
@@ -132,27 +130,24 @@ gulp.task('build', [
     'style:build',
     'html:build',
     'image:build',
-    'chm:build',
-    'publish'
-]);
+    'chm:build'
+], function(){    
+    gulp.start('publish');
+});
 
 
 gulp.task('watch', function () {
     watch(path.watch.html, function (event, cb) {
-        gulp.start('html:build');
-        gulp.start('chm:build');
+        gulp.start('build');
     });
     watch(path.watch.scss, function (event, cb) {
-        gulp.start('style:build');
-        gulp.start('chm:build');
+        gulp.start('build');
     });
     watch(path.watch.js, function (event, cb) {
-        gulp.start('js:build');
-        gulp.start('chm:build');
+        gulp.start('build');
     });
     watch(path.watch.img, function (event, cb) {
-        gulp.start('image:build');
-        gulp.start('chm:build');
+        gulp.start('build');
     });
 });
 

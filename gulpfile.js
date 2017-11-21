@@ -41,7 +41,7 @@ const gulp = require('gulp'),
             chm: chm,
             web: {
                 articles: 'articles/**/*.*',
-                assets: 'assets/**/*.*',
+                assets: ['assets/**/*.*', 'src/assets/*.css'],
                 index: 'index.html'
             }
         },

@@ -67,7 +67,7 @@ const gulp = require('gulp'),
             .substring(hhToc.indexOf('<UL>'))
             .replace(/<OBJECT type=\"text\/sitemap\">/g, '<a')
             .replace(/<param name=\"Name\" value=\"(.+?)\">/g, ' title="$1"')
-            .replace(/<param name=\"Local\" value=\"(.+?)\">/g, ' href="$1"')
+            .replace(/<param name=\"Local\" value=\"(.+?)\">/g, ' href="$1" target="article"')
             .replace(/<\/OBJECT>/g, '></a>')
             .replace(/\"\s*\n\t*\s*/g, '" ')
             .replace(/<a\s*\n*/g, '<a ')

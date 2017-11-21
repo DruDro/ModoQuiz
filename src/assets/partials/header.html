@@ -3,7 +3,7 @@
         <HEAD>
           <meta http-equiv="X-UA-Compatible" content="IE=9">
           <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-          <Title>@@title @@if(context.type == "api"){- @@subtitle}</Title>
+          <Title>@@productTitle | @@title @@if(context.type == "api"){- @@subtitle}</Title>
           <link rel="stylesheet" href="../assets/style.css">
           @@if(context.type == "api"){
             <script src="../assets/jquery-3.2.1.min.js" charset="UTF-8"></script>
@@ -22,11 +22,11 @@
               </span>
               <span class="article__title">
                 @@if(context.type == "api"){
-                    <span class="resource-title">@@title</span>
+                    <span class="resource-title"><span class="product-title">@@productTitle</span>@@title</span>
                     <br>@@subtitle</span>
                 }
                 @@if(context.type !== "api"){
-                    @@title
+                  <span class="product-title">@@productTitle</span>@@title
                 }
             </h1>
           </div>

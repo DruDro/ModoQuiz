@@ -13,12 +13,14 @@ const gulp = require('gulp'),
     },
     run = require('gulp-run'),
     fs = require('fs'),
+    rimraf = require('gulp-rimraf'),
     p = require('path'),
     proj = p.resolve(__dirname).substring(p.resolve(__dirname).lastIndexOf('\\') + 1),
     hhp = `${proj}.hhp`,
     hhc = `${proj}.hhc`,
+    chm = `${proj}.chm`,
     path = {
-        root: p.resolve(__dirname),
+        root: `${proj}`,
         build: {
             html: 'articles/',
             js: 'assets/',
@@ -36,7 +38,7 @@ const gulp = require('gulp'),
             js: 'src/assets/**/*.js',
             scss: 'src/assets/sass/*.scss',
             img: 'src/assets/images/**/*.*',
-            chm: `${proj}.chm`,
+            chm: chm,
             web: {
                 articles: 'articles/**/*.*',
                 assets: 'assets/**/*.*',
@@ -125,6 +127,10 @@ gulp.task('publish', function () {
         .pipe(gulp.dest(path.build.chm));
 });
 
+gulp.task('clean', ['publish'], function () {
+    return run(`rimraf articles assets index.html ${chm}`).exec();
+});
+
 gulp.task('build', [
     'js:build',
     'style:build',
@@ -132,7 +138,7 @@ gulp.task('build', [
     'image:build',
     'chm:build'
 ], function(){    
-    gulp.start('publish');
+    gulp.start('clean');
 });
 
 

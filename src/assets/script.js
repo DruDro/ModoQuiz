@@ -1,4 +1,9 @@
 $(function () {
+
+    $("[data-fancybox]").fancybox({
+		// Options will go here
+	});
+
     $(document).on("click", '.js-toggle-code', function (e) {
         e.preventDefault();
         e.stopPropagation;

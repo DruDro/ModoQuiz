@@ -4,7 +4,14 @@
 </div>
 </div>
 <script>
-    $('.toc li').each(function () {
+    $('.toc h2 a').click(function(e) {
+        e.preventDefault();
+        let tabLink = $(this),
+            tab = $(`${tabLink.attr("href")}`);
+            tabLink.addClass('active').closest('h2').siblings().children('a').removeClass('active');
+            tab.show().siblings('ul').hide();
+    });
+    $('.toc li').each(function() {
         $(this).prepend('<i></i>')
         if ($(this).children('ul').length) {
             const li = $(this);

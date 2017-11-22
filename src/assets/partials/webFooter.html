@@ -9,9 +9,9 @@
         if ($(this).children('ul').length) {
             const li = $(this);
             li.addClass('folder closed');
-            const toggler = li.children('i');
+            const toggler = li.children(`i, a`);
             toggler.click(function () {
-                if(li.hasClass('open')){
+                if(li.hasClass('open') && !$(this).is('a')){
                     li.removeClass('open').addClass('closed');
                     li.children('ul').first().slideUp(300);
                 } else{

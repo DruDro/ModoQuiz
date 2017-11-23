@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="assets/style.css">
     <style>
         :focus {
-            outline:0;
+            outline: 0;
         }
+
         body,
         html {
             margin: 0;
@@ -55,18 +56,18 @@
             margin: 0;
             transition: all .15s ease-in-out;
         }
-        
-                .toc h2 a {
-                    display: block;
-                    padding: 15px;
-                    font-weight:400;
-                    text-decoration:none;
-                    color:#454545;
-                }
+
+        .toc h2 a {
+            display: block;
+            padding: 15px;
+            font-weight: 400;
+            text-decoration: none;
+            color: #454545;
+        }
 
         .toc h2 a:hover,
         .toc h2 a:focus {
-            text-decoration:underline;
+            text-decoration: underline;
         }
 
         .toc h2 a.active {
@@ -100,8 +101,9 @@
             text-decoration: none;
             padding: 4px 0;
             display: block;
-            color:#454545;
+            color: #454545;
         }
+
         .toc ul a:hover,
         .toc ul a:focus {
             text-decoration: underline;
@@ -122,7 +124,7 @@
         }
 
         .toc li>i:before {
-            content:"≣";
+            content: "≣";
             line-height: 30px;
         }
 
@@ -158,8 +160,49 @@
             margin: 0;
             padding: 0;
         }
+
+        @media print {
+            .toc {
+                display: none;
+            }
+            html,
+            body,
+            .wrapper,
+            .frameholder,
+            #article {
+                min-height: 100vh;
+                height: auto !important;
+                display: block !important;
+                overflow: auto !important;
+            }
+        }
     </style>
     <script src="./assets/jquery-3.2.1.min.js"></script>
+    <script>
+        (function () {
+            var beforePrint = function () {
+
+                window.frames["article"].focus();
+                window.frames["article"].print();
+            };
+            var afterPrint = function () {
+            };
+
+            if (window.matchMedia) {
+                var mediaQueryList = window.matchMedia('print');
+                mediaQueryList.addListener(function (mql) {
+                    if (mql.matches) {
+                        beforePrint();
+                    } else {
+                        afterPrint();
+                    }
+                });
+            }
+
+            window.onbeforeprint = beforePrint;
+            window.onafterprint = afterPrint;
+        }());
+    </script>
 </HEAD>
 
 <body>

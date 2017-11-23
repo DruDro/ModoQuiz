@@ -3,6 +3,11 @@
 <HTML>
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<style>
+body {
+	background:red;
+}
+</style>
 <!-- Sitemap 1.0 -->
 </HEAD><BODY>
                 <UL>
@@ -16,14 +21,13 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="User Reference"><param name="Name" value="User Reference">
-		<param name="Local" value="articles\user-ref.htm">
 		</OBJECT>
-	
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Home Screen"><param name="Name" value="Home Screen">
-			<param name="Local" value="articles\home.htm">
-			</OBJECT>
-	
+		
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Home Screen"><param name="Name" value="Home Screen">
+				<param name="Local" value="articles\home.htm">
+				</OBJECT>
+		
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Developer Reference"><param name="Name" value="Developer Reference">
 		<param name="Local" value="articles\dev-ref.htm">

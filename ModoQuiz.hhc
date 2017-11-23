@@ -3,7 +3,7 @@
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
 <!-- Sitemap 1.0 -->
-</HEAD><body>
+</HEAD><BODY>
 <OBJECT type="text/site properties">
 	<param name="Window Styles" value="0x800025">
 </OBJECT>
@@ -21,10 +21,6 @@
 		<param name="Local" value="articles\user-ref.htm">
 		</OBJECT>
 	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Sign Up / Log in">
-			<param name="Local" value="articles\login.htm">
-			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Home Screen">
 			<param name="Local" value="articles\home.htm">

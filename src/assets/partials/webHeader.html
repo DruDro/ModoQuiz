@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
     <style>
+        :focus {
+            outline:0;
+        }
         body,
         html {
             margin: 0;
@@ -61,7 +64,8 @@
                     color:#454545;
                 }
 
-        .toc h2 a:hover {
+        .toc h2 a:hover,
+        .toc h2 a:focus {
             text-decoration:underline;
         }
 
@@ -98,6 +102,7 @@
             display: block;
             color:#454545;
         }
+        .toc ul a:hover,
         .toc ul a:focus {
             text-decoration: underline;
         }

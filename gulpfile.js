@@ -19,6 +19,7 @@ const gulp = require('gulp'),
     proj = p.resolve(__dirname).substring(p.resolve(__dirname).lastIndexOf('\\') + 1),
     hhp = `${proj}.hhp`,
     hhc = `${proj}.hhc`,
+    hhk = `${proj}.hhk`,
     chm = `${proj}.chm`,
     path = {
         root: `${proj}`,
@@ -47,7 +48,7 @@ const gulp = require('gulp'),
             }
         },
         watch: {
-            html: ['src/articles/**/*.*','src/assets/partials/*.*'],
+            html: ['src/articles/**/*.*', 'src/assets/partials/*.*'],
             js: 'src/assets/**/*.js',
             scss: 'src/assets/sass/*.scss',
             img: 'src/assets/images/**/*.*',
@@ -66,6 +67,22 @@ const gulp = require('gulp'),
         });
     },
 
+    makeHHK = (req) => {
+        const hhToc = get(`${hhc}`);
+        const header = hhToc.substring(0, hhToc.indexOf('<BODY>') + 6);
+        const footer = hhToc.substring(hhToc.lastIndexOf('<\/UL>'));
+        let index = '<UL>' + hhToc
+            .substring(hhToc.indexOf('<UL>'),hhToc.lastIndexOf('<\/UL>'))
+            .replace(/<UL>|<\/UL>/g, '')
+            .replace(/<param name=\"Name\" value=\"(.+?)\">/g, '<param name="Name" value="$1"><param name="Name" value="$1">');        
+        const html = `
+                ${header}
+                ${index}
+                ${footer}
+            `;
+        write(`${hhk}`, html);
+    },
+
     makeWeb = (req) => {
         const hhToc = get(`${hhc}`);
         const header = get(`src/assets/partials/webHeader.html`);
@@ -80,14 +97,8 @@ const gulp = require('gulp'),
             .replace(/<a\s*\n*/g, '<a ')
             .replace(/<a title="(.+?)"(.+?)>/g, '<a title="$1"$2>$1');
         toc = toc.substring(0, toc.indexOf('</BODY>'));
-        let index = toc
-            .replace(/<UL>/g,'')
-            .replace(/<\/UL>/g,'')
-            .replace(/<\/LI>/,'')
-            .replace(/<!--/g,'')
-            .replace(/-->/,'')
-            .replace(',','');
-        toc = $(toc).attr("id","toc");
+        let index = toc.replace(/<UL>|<\/UL>|<\/LI>|<!--|-->|,/g, '');
+        toc = $(toc).attr("id", "toc");
         const compare = (a1, a2) => {
             var t1 = $(a1).text(), t2 = $(a2).text();
             return t1 > t2 ? 1 : (t1 < t2 ? -1 : 0);
@@ -99,11 +110,11 @@ const gulp = require('gulp'),
         index = `<UL id="index">${sortList(index).join('<LI>')}</UL>`;
 
         const html = `
-            ${header}
-            ${toc}
-            ${index}
-            ${footer}
-        `;
+                    ${header}
+                    ${toc}
+                    ${index}
+                    ${footer}
+                `;
         write('index.html', html);
     };
 
@@ -137,6 +148,7 @@ gulp.task('image:build', function () {
 });
 
 gulp.task('chm:build', function () {
+    makeHHK();
     makeWeb();
     return run(hhp).exec();
 });
@@ -163,7 +175,7 @@ gulp.task('build', [
     'html:build',
     'image:build',
     'chm:build'
-], function(){    
+], function () {
     gulp.start('clean');
 });
 

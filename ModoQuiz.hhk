@@ -1,41 +1,49 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+                <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <HTML>
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
 <!-- Sitemap 1.0 -->
-</HEAD>
-<BODY>
-	<UL>
+</HEAD><BODY>
+                <UL>
+	<!--<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="What's New"><param name="Name" value="What's New">
+		<param name="Local" value="articles\whats-new.htm">
+		</OBJECT>-->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Overview"><param name="Name" value="Overview">
+		<param name="Local" value="articles\overview.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="User Reference"><param name="Name" value="User Reference">
+		<param name="Local" value="articles\user-ref.htm">
+		</OBJECT>
+	
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Overview">
-			<param name="Name" value="Overview">
-			<param name="Local" value="articles\overview.htm">
-			</OBJECT>
-		</LI>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="User Reference">
-			<param name="Name" value="User Reference">
-			<param name="Local" value="articles\user-ref.htm">
-			</OBJECT>
-		</LI>	
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Sign Up / Log in">
-			<param name="Name" value="Sign Up / Log in">
-			<param name="Local" value="articles\login.htm">
-			</OBJECT>
-		</LI>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Home Screen">
-			<param name="Name" value="Home Screen">
+			<param name="Name" value="Home Screen"><param name="Name" value="Home Screen">
 			<param name="Local" value="articles\home.htm">
 			</OBJECT>
-		</LI>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Developer Reference">
-			<param name="Name" value="Developer Reference">
-			<param name="Local" value="articles\dev-ref.htm">
-			</OBJECT>
-		</LI>	
-	</UL>
+	
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Developer Reference"><param name="Name" value="Developer Reference">
+		<param name="Local" value="articles\dev-ref.htm">
+		</OBJECT>
+		
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Jobs"><param name="Name" value="Jobs">
+				<param name="Local" value="articles\jobs-resource.htm">
+				</OBJECT>
 
+				
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Create a New Job"><param name="Name" value="Create a New Job">
+						<param name="Local" value="articles\jobs-resource-create.htm">
+						</OBJECT>
+				
+
+		
+
+                </UL>
 </BODY></HTML>
+
+            

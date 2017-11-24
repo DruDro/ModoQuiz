@@ -13,13 +13,13 @@ body {
 	<param name="Window Styles" value="0x800025">
 </OBJECT>
 <UL>
-	<!--<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="What's New">
-		<param name="Local" value="articles\whats-new.htm">
-		</OBJECT>-->
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Overview">
 		<param name="Local" value="articles\overview.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Features">
+		<param name="Local" value="articles\features.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="User Reference">
@@ -36,17 +36,157 @@ body {
 		</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Jobs">
-				<param name="Local" value="articles\jobs-resource.htm">
+				<param name="Name" value="Update History">
+				<param name="Local" value="articles\update-history.htm">
 				</OBJECT>
-
-				<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Introduction">
+				<param name="Local" value="articles\introduction.htm">
+				</OBJECT>
+				<UL>				
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Practices and Code Style">
+					<param name="Local" value="articles\practices.htm">
+					</OBJECT>
+					<UL>				
 					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Create a New Job">
-						<param name="Local" value="articles\jobs-resource-create.htm">
+						<param name="Name" value="Expectations and Intent During Iterations">
+						<param name="Local" value="articles\expectations.htm">
 						</OBJECT>
+					</UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Delivery">
+					<param name="Local" value="articles\delivery.htm">
+					</OBJECT>
 				</UL>
-
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Technical Considerations">
+				<param name="Local" value="articles\tech-considerations.htm">
+				</OBJECT>
+				<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="The Modo Quiz Game">
+					<param name="Local" value="articles\the-game.htm">
+					</OBJECT>
+					<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Text Assets for Translation">
+						<param name="Local" value="articles\text-assets.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Model View ViewModel">
+						<param name="Local" value="articles\view-model.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Unity Dependencies and Project Delivery">
+						<param name="Local" value="articles\view-model.htm">
+						</OBJECT>
+					</UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="The Modo Quiz API">
+					<param name="Local" value="articles\api.htm">
+					</OBJECT>
+					<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Microsoft Web API">
+						<param name="Local" value="articles\ms-api.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Entity Framework">
+						<param name="Local" value="articles\entity-framework.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Domain Model">
+						<param name="Local" value="articles\domain-model.htm">
+						</OBJECT>
+					</UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="The Modo Quiz Backend">
+					<param name="Local" value="articles\backend.htm">
+					</OBJECT>
+					<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Microsoft MVC 5">
+						<param name="Local" value="articles\mvc.htm">
+						</OBJECT>
+					</UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Overall Quiz Flowchart">
+					<param name="Local" value="articles\flowchart.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Design implementation Notes">
+					<param name="Local" value="articles\design.htm">
+					</OBJECT>
+					<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Animations">
+						<param name="Local" value="articles\animations.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Screen Transitions">
+						<param name="Local" value="articles\transitions.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Interaction">
+						<param name="Local" value="articles\interaction.htm">
+						</OBJECT>
+					</UL>
+				</UL>		
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Game Design and Game Play">
+				<param name="Local" value="articles\gameplay.htm">
+				</OBJECT>
+				<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Start New Quiz">
+					<param name="Local" value="articles\start-new-quiz.htm">
+					</OBJECT>
+					<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Challenge A Friend">
+						<param name="Local" value="articles\challenge-friend.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Challenge Friends">
+						<param name="Local" value="articles\challenge-friends.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Random Challenger">
+						<param name="Local" value="articles\random-challenger.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Find Challenge">
+						<param name="Local" value="articles\find-challenge.htm">
+						</OBJECT>		
+					</UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Quiz">
+					<param name="Local" value="articles\quiz.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Quiz Sequence">
+					<param name="Local" value="articles\quiz-sequence.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Quiz Aid">
+					<param name="Local" value="articles\quiz-aid.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Challenge Quiz">
+					<param name="Local" value="articles\challenge-quiz.htm">
+					</OBJECT>
+					<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Challenge Quiz Sequence">
+						<param name="Local" value="articles\challenge-quiz-sequence.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Challenge Quiz Score Board">
+						<param name="Local" value="articles\challenge-quiz-score.htm">
+						</OBJECT>	
+					</UL>
+		
 		</UL>
 </UL>
 </BODY></HTML>

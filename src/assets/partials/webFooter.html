@@ -3,6 +3,7 @@
     <iframe src="articles/overview.htm" frameborder="0" id="article" name="article"></iframe>
 </div>
 </div>
+<script src="./assets/jquery-3.2.1.min.js"></script>
 <script>
     $('.toc h2 a').click(function (e) {
         e.preventDefault();
@@ -12,8 +13,8 @@
         tab.show().siblings('ul').hide();
     });
     $('.toc li').each(function () {
-            var li = $(this);
-            li.prepend('<i></i>');
+        var li = $(this);
+        li.prepend('<i></i>');
         if ($(this).children('ul').length) {
             li.addClass('folder closed');
             var toggler = li.children('i, a');
@@ -32,6 +33,33 @@
             });
         }
     });
+    $('.toc-toggle').on("click touchend", function () {
+        $('.toc').toggleClass('hidden');
+    });
+    function printFrame(e) {
+        var beforePrint = function () {
+
+            window.frames["article"].focus();
+            window.frames["article"].print();
+        };
+        var afterPrint = function () {
+        };
+
+        if (window.matchMedia) {
+            var mediaQueryList = window.matchMedia('print');
+            mediaQueryList.addListener(function (mql) {
+                if (mql.matches) {
+                    beforePrint();
+                } else {
+                    afterPrint();
+                }
+            });
+        }
+
+        window.onbeforeprint = beforePrint();
+        window.onafterprint = afterPrint();
+    }
+    
 </script>
 </BODY>
 

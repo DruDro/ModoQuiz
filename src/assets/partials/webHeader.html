@@ -20,6 +20,7 @@
         body {
             display: block;
             width: 100vw;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
         .wrapper {
@@ -90,7 +91,7 @@
             margin: 0;
             padding: 15px;
             display: block;
-            max-height: calc(100vh - 83px);
+            max-height: calc(100vh - 68px);
             overflow: auto;
             background: #fff;
             display: block;
@@ -121,44 +122,67 @@
             height: 30px;
             left: -11px;
             top: -2px;
-        }
-
-        .toc li>i:before {
-            content: "≣";
-            line-height: 30px;
+            background-size:50%;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-image:url(./assets/images/icons/icons8-overview.png);
         }
 
         .toc li.folder>i {
             cursor: pointer;
         }
 
-        .toc li.folder.open>i:before {
-            content: "⏷";
+        .toc li.folder.open>i {
+            background-image:url(./assets/images/icons/icons8-open.png);
         }
 
-        .toc li.folder.closed>i:before {
-            content: "⏵";
+        .toc li.folder.closed>i {
+            background-image:url(./assets/images/icons/icons8-folder.png);
         }
 
         #index {
             display: none;
         }
 
+        .toc-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #454545;
+            border-left:0;
+            border-radius: 0 5px 5px 0;
+            background: #fff;
+            opacity: .5;
+            color: #454545;
+            text-align: center;
+            line-height: 40px;
+            position: absolute;
+            top:50%;
+            right:-40px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition:all .2s ease-in-out;
+            user-select: none;
+            cursor:pointer;
+        }
+
         .frameholder {
             display: table-cell;
-            overflow: auto;
             position: relative;
             vertical-align: top;
+            overflow: hidden;
         }
 
         #article {
             display: block;
-            height: 100vh;
+            height: 100%;
             width: 100%;
             border: 0;
             position: relative;
             margin: 0;
             padding: 0;
+            -webkit-overflow-scrolling: touch;
+            overflow:auto;
         }
 
         @media print {
@@ -176,41 +200,59 @@
                 overflow: auto !important;
             }
         }
-    </style>
-    <script src="./assets/jquery-3.2.1.min.js"></script>
-    <script>
-        (function () {
-            var beforePrint = function () {
 
-                window.frames["article"].focus();
-                window.frames["article"].print();
-            };
-            var afterPrint = function () {
-            };
-
-            if (window.matchMedia) {
-                var mediaQueryList = window.matchMedia('print');
-                mediaQueryList.addListener(function (mql) {
-                    if (mql.matches) {
-                        beforePrint();
-                    } else {
-                        afterPrint();
-                    }
-                });
+        @media screen and (max-width:1023px) {
+            .toc {
+                position: fixed;
+                left: 0;
+                top: 0;
+                display: block;
+                z-index: 1;
+                overflow:visible;
+                box-shadow: 0 0 25px 5px rgba(0,0,0,.5);
+                resize:none;
+                width: 280px;
+                min-width:0;
             }
-
-            window.onbeforeprint = beforePrint;
-            window.onafterprint = afterPrint;
-        }());
-    </script>
+            .toc.hidden {
+                left: -280px;
+                box-shadow:0 0 0px 0px rgba(0,0,0,0);
+            }
+            .toc-toggle {
+                display: block;
+            }
+            .toc-toggle:hover {
+                opacity:1;
+            }
+            .toc>ul {
+                max-height:calc(100vh - 48px);
+            }
+            .frameholder {
+                display: block;
+                position: relative;
+                z-index: 0;
+                height:100vh;
+            }
+        }
+    </style>
 </HEAD>
 
 <body>
     <div class="wrapper">
-        <div class="toc">
+        <div class="toc hidden">
+            <span class="toc-toggle">☰</span>
             <h2>
                 <a href="#toc" class="active">Contents</a>
             </h2>
             <h2>
-                <a href="#index">Index</a>
+                <a href="#index">A&mdash;Z</a>
+            </h2>
+            <h2>
+                <a href="" onclick="printFrame()" style="    
+                display: inline-block;
+                text-decoration: none;
+                background-size: 70%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url(./assets/images/icons/icons8-print.png);">&nbsp;</a>
             </h2>

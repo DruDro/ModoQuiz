@@ -60,6 +60,10 @@
         window.onafterprint = afterPrint();
     }
     
+    $( "#article" ).on('load',function() {
+        var pageTitle = document.getElementById("article").contentDocument.title;
+        document.title = document.title + ' | ' + pageTitle;
+    });
 </script>
 </BODY>
 

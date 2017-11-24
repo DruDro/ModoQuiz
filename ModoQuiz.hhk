@@ -24,13 +24,54 @@ body {
 		</OBJECT>
 		
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Log In"><param name="Name" value="Log In">
+				<param name="Local" value="articles\login.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Home Screen"><param name="Name" value="Home Screen">
 				<param name="Local" value="articles\home.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Add Friends"><param name="Name" value="Add Friends">
+				<param name="Local" value="articles\add-friends.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="How To Play"><param name="Name" value="How To Play">
+				<param name="Local" value="articles\play.htm">
+				</OBJECT>
+								
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Challenge a Friend"><param name="Name" value="Challenge a Friend">
+					<param name="Local" value="articles\play-friend.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Challenge Friends"><param name="Name" value="Challenge Friends">
+					<param name="Local" value="articles\play-friends.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Play Random Challenge"><param name="Name" value="Play Random Challenge">
+					<param name="Local" value="articles\play-random.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Join a Challenge"><param name="Name" value="Join a Challenge">
+					<param name="Local" value="articles\play-join.htm">
+					</OBJECT>
+				
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Challenge History"><param name="Name" value="Challenge History">
+				<param name="Local" value="articles\challenge-history.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Triumph Board"><param name="Name" value="Triumph Board">
+				<param name="Local" value="articles\triumph.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Modoshop"><param name="Name" value="Modoshop">
+				<param name="Local" value="articles\modoshop.htm">
 				</OBJECT>
 		
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Developer Reference"><param name="Name" value="Developer Reference">
-		<param name="Local" value="articles\dev-ref.htm">
 		</OBJECT>
 		
 			<LI> <OBJECT type="text/sitemap">
@@ -77,7 +118,7 @@ body {
 						</OBJECT>
 					<LI> <OBJECT type="text/sitemap">
 						<param name="Name" value="Unity Dependencies and Project Delivery"><param name="Name" value="Unity Dependencies and Project Delivery">
-						<param name="Local" value="articles\view-model.htm">
+						<param name="Local" value="articles\unity-dependencies.htm">
 						</OBJECT>
 					
 				<LI> <OBJECT type="text/sitemap">
@@ -116,20 +157,6 @@ body {
 					<param name="Name" value="Design implementation Notes"><param name="Name" value="Design implementation Notes">
 					<param name="Local" value="articles\design.htm">
 					</OBJECT>
-					
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Animations"><param name="Name" value="Animations">
-						<param name="Local" value="articles\animations.htm">
-						</OBJECT>
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Screen Transitions"><param name="Name" value="Screen Transitions">
-						<param name="Local" value="articles\transitions.htm">
-						</OBJECT>
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Interaction"><param name="Name" value="Interaction">
-						<param name="Local" value="articles\interaction.htm">
-						</OBJECT>
-					
 						
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Game Design and Game Play"><param name="Name" value="Game Design and Game Play">
@@ -140,51 +167,35 @@ body {
 					<param name="Name" value="Start New Quiz"><param name="Name" value="Start New Quiz">
 					<param name="Local" value="articles\start-new-quiz.htm">
 					</OBJECT>
-					
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Challenge A Friend"><param name="Name" value="Challenge A Friend">
-						<param name="Local" value="articles\challenge-friend.htm">
-						</OBJECT>
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Challenge Friends"><param name="Name" value="Challenge Friends">
-						<param name="Local" value="articles\challenge-friends.htm">
-						</OBJECT>
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Random Challenger"><param name="Name" value="Random Challenger">
-						<param name="Local" value="articles\random-challenger.htm">
-						</OBJECT>
-					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Find Challenge"><param name="Name" value="Find Challenge">
-						<param name="Local" value="articles\find-challenge.htm">
-						</OBJECT>		
-					
 				<LI> <OBJECT type="text/sitemap">
 					<param name="Name" value="Quiz"><param name="Name" value="Quiz">
 					<param name="Local" value="articles\quiz.htm">
 					</OBJECT>
-				<LI> <OBJECT type="text/sitemap">
-					<param name="Name" value="Quiz Sequence"><param name="Name" value="Quiz Sequence">
-					<param name="Local" value="articles\quiz-sequence.htm">
-					</OBJECT>
-				<LI> <OBJECT type="text/sitemap">
-					<param name="Name" value="Quiz Aid"><param name="Name" value="Quiz Aid">
-					<param name="Local" value="articles\quiz-aid.htm">
-					</OBJECT>
-				<LI> <OBJECT type="text/sitemap">
-					<param name="Name" value="Challenge Quiz"><param name="Name" value="Challenge Quiz">
-					<param name="Local" value="articles\challenge-quiz.htm">
-					</OBJECT>
 					
 					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Challenge Quiz Sequence"><param name="Name" value="Challenge Quiz Sequence">
-						<param name="Local" value="articles\challenge-quiz-sequence.htm">
+						<param name="Name" value="Quiz Sequence"><param name="Name" value="Quiz Sequence">
+						<param name="Local" value="articles\quiz-sequence.htm">
 						</OBJECT>
 					<LI> <OBJECT type="text/sitemap">
-						<param name="Name" value="Challenge Quiz Score Board"><param name="Name" value="Challenge Quiz Score Board">
-						<param name="Local" value="articles\challenge-quiz-score.htm">
-						</OBJECT>	
+						<param name="Name" value="Quiz Aid"><param name="Name" value="Quiz Aid">
+						<param name="Local" value="articles\quiz-aid.htm">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Challenge Quiz"><param name="Name" value="Challenge Quiz">
+						<param name="Local" value="articles\challenge-quiz.htm">
+						</OBJECT>
+						
+						<LI> <OBJECT type="text/sitemap">
+							<param name="Name" value="Challenge Quiz Sequence"><param name="Name" value="Challenge Quiz Sequence">
+							<param name="Local" value="articles\challenge-quiz-sequence.htm">
+							</OBJECT>
+						<LI> <OBJECT type="text/sitemap">
+							<param name="Name" value="Challenge Quiz Score Board"><param name="Name" value="Challenge Quiz Score Board">
+							<param name="Local" value="articles\challenge-quiz-score.htm">
+							</OBJECT>	
+						
 					
-		
+				
 		
 
                 </UL>

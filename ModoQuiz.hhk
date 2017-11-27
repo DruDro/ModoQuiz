@@ -183,16 +183,6 @@
 						<param name="Name" value="Challenge Quiz"><param name="Name" value="Challenge Quiz">
 						<param name="Local" value="articles\challenge-quiz.htm">
 						</OBJECT>
-						
-						<LI> <OBJECT type="text/sitemap">
-							<param name="Name" value="Challenge Quiz Sequence"><param name="Name" value="Challenge Quiz Sequence">
-							<param name="Local" value="articles\challenge-quiz-sequence.htm">
-							</OBJECT>
-						<LI> <OBJECT type="text/sitemap">
-							<param name="Name" value="Challenge Quiz Score Board"><param name="Name" value="Challenge Quiz Score Board">
-							<param name="Local" value="articles\challenge-quiz-score.htm">
-							</OBJECT>	
-						
 					
 				
 		

@@ -46,10 +46,6 @@
 					<param name="Local" value="articles\play-friends.htm">
 					</OBJECT>
 				<LI> <OBJECT type="text/sitemap">
-					<param name="Name" value="Play Random Challenge">
-					<param name="Local" value="articles\play-random.htm">
-					</OBJECT>
-				<LI> <OBJECT type="text/sitemap">
 					<param name="Name" value="Join a Challenge">
 					<param name="Local" value="articles\play-join.htm">
 					</OBJECT>
@@ -61,10 +57,6 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Challenge History">
 				<param name="Local" value="articles\challenge-history.htm">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Triumph Board">
-				<param name="Local" value="articles\triumph-board.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Modoshop">

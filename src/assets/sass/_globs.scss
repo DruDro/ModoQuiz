@@ -60,31 +60,40 @@ body {
         }
     }
 } //===MAIN end===//
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 16px;
+        line-height: 21px;
+    }
+}
+
 @media print {
     body {
         height: auto !important;
         min-height: 100vh;
         display: block;
+        font-size: 16px;
+        line-height: 21px;
     }
-    .article{
+    .article {
         display: block;
-        height:auto;
+        height: auto;
         &__header {
-            display:none;
+            display: none;
         }
     }
     .header {
-        display:table;
-        height:auto;
+        display: table;
+        height: auto;
     }
     .footer {
-        display:none !important;
+        display: none !important;
     }
     .article__wrapper {
         display: block;
     }
     .footnotes {
-        height:auto;
+        height: auto;
         display: block;
         ul {
             display: block;

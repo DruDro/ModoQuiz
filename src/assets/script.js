@@ -2,7 +2,15 @@ $(function () {
 
     $("[data-fancybox]").fancybox({
 		// Options will go here
-	});
+    });
+    $("[data-fancybox]").on("mouseup touchend", function(e){
+        if($(window).width() < 768){
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    });
+    
 
     $(document).on("click", '.js-toggle-code', function (e) {
         e.preventDefault();

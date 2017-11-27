@@ -1,4 +1,5 @@
 </div>
+<div class="overlay hidden"></div>
 <div class="frameholder">
     <iframe src="articles/overview.htm" frameborder="0" id="article" name="article"></iframe>
 </div>
@@ -33,10 +34,14 @@
             });
         }
     });
-    $(document).on("click touchend", function (e) {
-        if ($(e.target) == $('.toc-toggle')) {
+    $(document).on("mouseup touchend", function (e) {
+        if (!$(e.target).closest('.toc, .toc *, .toc-toggle').length) {	
+            $('.toc, .overlay').addClass('hidden');
+        }
+        else if ($(e.target).closest('.toc-toggle').length) {            
             e.preventDefault();
             $('.toc').toggleClass('hidden');
+            $('.overlay').toggleClass('hidden');
         }
     });
     function printFrame(e) {

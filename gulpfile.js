@@ -154,22 +154,11 @@ gulp.task('chm:build', function () {
     return run(hhp).exec();
 });
 
-gulp.task('publish', function () {
-    gulp.src(path.src.web.articles)
-        .pipe(gulp.dest(path.build.web.articles));
-    gulp.src(path.src.web.assets)
-        .pipe(gulp.dest(path.build.web.assets));
-    gulp.src(path.src.web.index)
-        .pipe(gulp.dest(path.build.web.index));
-
-    gulp.src(path.src.chm)
-        .pipe(gulp.dest(path.build.chm));
-});
 
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "./dist/web/"
+            baseDir: "./"
         }
     });
 });
@@ -178,11 +167,10 @@ gulp.task('build', [
     'js:build',
     'style:build',
     'html:build',
-    'image:build',
-    'chm:build'
+    'image:build'
 ], function () {
-    gulp.start('clean');
     browserSync.reload();
+    gulp.start('chm:build')
 });
 
 gulp.task('watch', function () {
@@ -200,8 +188,5 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('clean', ['publish'], function () {
-    return run(`rimraf articles assets index.html ${chm}`).exec();
-});
 
 gulp.task('default', ['build','browser-sync', 'watch']);

@@ -2,11 +2,6 @@
 <HTML>
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-<style>
-body {
-	background:red;
-}
-</style>
 <!-- Sitemap 1.0 -->
 </HEAD><BODY>
 <OBJECT type="text/site properties">
@@ -60,12 +55,16 @@ body {
 					</OBJECT>
 				</UL>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Custom Categories">
+				<param name="Local" value="articles\custom.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Challenge History">
 				<param name="Local" value="articles\challenge-history.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Triumph Board">
-				<param name="Local" value="articles\triumph.htm">
+				<param name="Local" value="articles\triumph-board.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Modoshop">

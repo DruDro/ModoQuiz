@@ -1,0 +1,54 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"Design Implementation Notes" })
+
+
+
+<div class="article__content">
+    <div class="abstract">Even though there is little interaction design presented, Pixelware will employ experience and create a vivid and exciting
+        experience for the user.
+        <br>
+        <b>No action should go unnoticed, no reward should pass unseen. </b> </div>
+    <p>The design outlined in the aforementioned design resource <sup><a href="#5">5</a></sup> does not include any interaction design, nor any animations
+        and transitions. Based on Pixelware’s experience with interaction design and games specifically – we will make opinionated
+        suggestions for review. One of the iteration builds will be focused on interaction design feedback, and at this point
+        we can change animations and transitions to match the expectations of Product Owner. Changes in this subject are
+        a timely and costly affair, so we will limit the iterations focused on interaction design to two iterations. Which
+        will result in at most three different designs (our original, revision 1, revision 2) after this an agreement should
+        be made between Pixelware and Product Owner to come to a decision in regards to interaction design, animations and
+        transitions. </p>
+    <h2>Animations</h2>
+    <p>The login screen has an animated logo. We will split the layers of the circular logo and make them rotate in alternating
+        directions (so they align once every spin).
+    </p>
+    <p>This iconic animation will be repeated as a visual hook for the user to indicate that the game is doing something. This
+        may include retrieving the next question, waiting for payment acceptance etc. </p>
+    <p>Animations will be made in a reusable fashion, so we can apply any given animation (for instance a shrink, grow, spin
+        etc) to any given visual component. </p>
+    <h2>Sscreen Transitions</h2>
+    <p>We will make a smooth and natural transition between screens. This is an animation that will be repeated across all screens,
+        so it should be fast, fluid and natural. </p>
+    <p>There are many sources of inspiration for this, and we will make something that feels good, but maybe also adds a bit
+        flare to the Modo Quiz Game. A subtle change that will differentiate this fun app from the rest.
+    </p>
+    <h2>Interaction</h2>
+    <p>Every click (on a clickable icon or button) should invoke an animation of either size, color or font changes.
+    </p>
+    <p>This animation will be reused across most graphics that can be clicked; so it should be fast, fluid and natural.
+    </p>
+    <p>Some buttons will most likely have a special and more exciting animation, such as when using a Modo Quiz, and selecting
+        an Answer from a Question.
+    </p>
+</div>
+
+
+
+
+@@include('../assets/partials/footnotes.html', {    
+    "arr": [
+        {
+            "anchor":"5",
+            "link":"https://projects.invisionapp.com/share/9B1Q3JVTJ",
+            "text": "Design resource"
+        }
+    ]
+})
+@@include('../assets/partials/footer.html')

@@ -1,0 +1,22 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"Text Assets for Translation" })
+
+
+
+<div class="article__content">
+    <div class="abstract">Modo Quiz is a multilingual app, as such all text will be read from a  well-defined resource </div>
+    <p>We will store all text strings in a file that is easily editable by any text editor. We propose the
+        following  format, stored in a simple .txt file:  </p>
+    <span>>_/ norwegian.txt</span>
+    <pre><code>    play   = Spill
+    buy    = Kjøp</code></pre>
+    <p>Each language will therefore have an associated resource file, which associates a system key (for instance
+         play) to the actual display text (“Spill”).
+    </p>
+    <p>These files will need to be stored using the <b>Unicode</b> encoding to ensure correct representation of special
+         characters (such as æ, ø and å).
+    </p>
+</div>
+
+
+
+@@include('../assets/partials/footer.html')

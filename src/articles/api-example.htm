@@ -1,0 +1,193 @@
+@@include('../assets/partials/header.html', {
+  "productTitle":"ModoQuiz",
+  "type":"api",
+  "title":"Jobs",
+  "subtitle":"Create A New Job"
+})
+
+    <div class="article__content">
+      <p>Adds a new Job object in the system</p>
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/link.png">URL</h3>
+      <pre class="url">api/Jobs</pre>
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/cube.png">Method</h3>
+      <p>
+        <span class="method post">POST</span>
+      </p>
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/params.png">Params</h3>
+      <ul><li><b>job</b> - JobDTO</li></ul>
+      <!--<h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/security.png">Required Security</h3>
+      <p>Authenticated, Admin role ONLY!
+      </p>-->
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/tick.png">Success Response</h3>
+      <ul>
+        <li>
+          Code:
+          <pre>200 OK</pre>
+        </li>
+        <li>
+          Content:
+          <pre>The created Serialized JobDTO</pre>
+        </li>
+      </ul>
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/curl.png">Sample cURL</h3>
+      <pre><code>curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d 'job' 'http://10.0.2.18:4001/api/Jobs'</code></pre>
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/curly.png">
+        <a href="#" class="js-toggle-code collapsed">Sample Value</a>
+      </h3>
+      <pre class="js-pre collapsed"><code>{
+  "Name": "string",
+  "JobRoles": [
+    {
+      "Name": "string",
+      "Step": 0,
+      "Value": "string",
+      "JobId": "string",
+      "JobResources": [
+        {
+          "Name": "string",
+          "ResourceLinkUri": "string",
+          "ResourceImageBlobUri": "string",
+          "DisplaySubTitle": "string",
+          "JobId": "string",
+          "JobRoleId": "string",
+          "Id": "string",
+          "UpdatedAt": "2017-11-15T16:17:51.283Z",
+          "CreatedAt": "2017-11-15T16:17:51.283Z"
+        }
+      ],
+      "Id": "string",
+      "UpdatedAt": "2017-11-15T16:17:51.283Z",
+      "CreatedAt": "2017-11-15T16:17:51.283Z"
+    }
+  ],
+  "JobResources": [
+    {
+      "Name": "string",
+      "ResourceLinkUri": "string",
+      "ResourceImageBlobUri": "string",
+      "DisplaySubTitle": "string",
+      "JobId": "string",
+      "JobRoleId": "string",
+      "Id": "string",
+      "UpdatedAt": "2017-11-15T16:17:51.283Z",
+      "CreatedAt": "2017-11-15T16:17:51.283Z"
+    }
+  ],
+  "AllowedCategoryTypes": [
+    {
+      "Id": 0,
+      "Name": "string",
+      "IsUserCreatable": true,
+      "MaxHourTrackers": 0,
+      "HourTrackerTypes": [
+        {
+          "Id": 0,
+          "SortOrder": 0,
+          "Name": "string",
+          "DisplayName": "string",
+          "MaxDisplayDecimals": 0
+        }
+      ]
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "string",
+      "JobId": "string",
+      "IsDefaultSuggestion": true,
+      "IsSystemCategory": true,
+      "CategoryType": {
+        "Id": 0,
+        "Name": "string",
+        "IsUserCreatable": true,
+        "MaxHourTrackers": 0,
+        "HourTrackerTypes": [
+          {
+            "Id": 0,
+            "SortOrder": 0,
+            "Name": "string",
+            "DisplayName": "string",
+            "MaxDisplayDecimals": 0
+          }
+        ]
+      },
+      "Id": "string",
+      "UpdatedAt": "2017-11-15T16:17:51.283Z",
+      "CreatedAt": "2017-11-15T16:17:51.283Z"
+    }
+  ],
+  "Id": "string",
+  "UpdatedAt": "2017-11-15T16:17:51.283Z",
+  "CreatedAt": "2017-11-15T16:17:51.283Z"
+}</code></pre>
+
+      <h3 class="ref-title">
+        <img class="icon ref" src="../assets/images/icons/model.png">
+        <a href="#" class="js-toggle-code collapsed">Model</a>
+      </h3>
+
+      <pre class="js-pre collapsed"><code>JobDTO {
+  Name (string, optional),
+  JobRoles (Array[JobRoleDTO], optional),
+  JobResources (Array[JobResourceDTO], optional),
+  AllowedCategoryTypes (Array[CategoryTypeDTO], optional),
+  Categories (Array[CategoryDTO], optional),
+  Id (string, optional),
+  UpdatedAt (string, optional),
+  CreatedAt (string, optional)
+}
+JobRoleDTO {
+  Name (string, optional),
+  Step (integer, optional),
+  Value (string, optional),
+  JobId (string, optional),
+  JobResources (Array[JobResourceDTO], optional),
+  Id (string, optional),
+  UpdatedAt (string, optional),
+  CreatedAt (string, optional)
+}
+JobResourceDTO {
+  Name (string, optional),
+  ResourceLinkUri (string, optional),
+  ResourceImageBlobUri (string, optional),
+  DisplaySubTitle (string, optional),
+  JobId (string, optional),
+  JobRoleId (string, optional),
+  Id (string, optional),
+  UpdatedAt (string, optional),
+  CreatedAt (string, optional)
+}
+CategoryTypeDTO {
+  Id (integer, optional),
+  Name (string, optional),
+  IsUserCreatable (boolean, optional),
+  MaxHourTrackers (integer, optional),
+  HourTrackerTypes (Array[HourTrackerTypeDTO], optional)
+}
+CategoryDTO {
+  Name (string, optional),
+  JobId (string, optional),
+  IsDefaultSuggestion (boolean, optional),
+  IsSystemCategory (boolean, optional),
+  CategoryType (CategoryTypeDTO, optional),
+  Id (string, optional),
+  UpdatedAt (string, optional),
+  CreatedAt (string, optional)
+}
+HourTrackerTypeDTO {
+  Id (integer, optional),
+  SortOrder (integer, optional),
+  Name (string, optional),
+  DisplayName (string, optional),
+  MaxDisplayDecimals (integer, optional)
+}</code></pre>
+    </div>
+
+    @@include('../assets/partials/footer.html')

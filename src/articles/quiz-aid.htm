@@ -1,0 +1,41 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"Quiz Aid" })
+
+
+
+<div class="article__content">
+
+    <p>Quiz aid is in-game help that makes it easier for the player to select the correct answer. These quiz aid are small
+        icons that are clickable when the player is answering quiz questions. There are three quiz aid alternatives selectable
+        from the quiz game page:
+    </p>
+    <ul>
+        <li>
+            <b>50/50</b>
+            - When this option is selected, 50% of the wrong answers are removed (made inactive)
+        </li>
+        <li>
+            <b>More time
+            </b>
+            - When this option is selected, the countdown timer adds 15 seconds.
+        </li>
+        <li>
+            <b>Hint</b>
+            - When this option is selected a text hint is given to the player. This hint is relevant to the question to make it easier
+            to answer.
+        </li>
+    </ul>
+    <p>Quiz aids will be acquired when pressed, and the account will withdraw coins at this point. As such, aids are only clickable
+        when the user has Coins. If the user clicked an aid (in an attempt to buy it) but had insufficient coins, the store
+        will open at the first available time (after timer is out) with an explanation that it’s opened because the player
+        needs more coins in order to complete the intent to get an Aid.
+    </p>
+    <p>If coins are available, then the Aid icon will play an animation and take effect, then it is set to not-clickable state
+        (grayed out, or transparency).
+    </p>
+</div>
+
+
+
+
+
+@@include('../assets/partials/footer.html')

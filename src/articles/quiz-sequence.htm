@@ -1,0 +1,61 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"Quiz Sequence" })
+
+
+
+<div class="article__content">
+
+    <p>This is the main game page. The description below illustrates the game flow when the player is answering questions. For
+        reference, the rough sequence is:
+    </p>
+    <ul>
+        <li>Select game mode
+            <ul>
+
+                <li>Random challenger </li>
+                <li>Challenge one friend </li>
+                <li>Challenge many friends </li>
+                <li>Find challenge </li>
+            </ul>
+        </li>
+        <li>
+            Select opponent(s)</li>
+        <li> Choose category and topic
+            <ul>
+                <li>NEW: Search through topics via button on the Modo icon in the middle of the page Upon click, the lower section
+                    (with topics) will slide up, and the list of topics will contain everything that matches the search string
+                    entered by the user.</li>
+            </ul>
+        </li>
+        <li> Start Quiz Sequence (outlined below)</li>
+    </ul>
+    <p>The sequence of a game is as follows:
+    </p>
+    <ul>
+        <li>A round number is display for 1 second ("Round 1", "Round 2", etc.)
+            <li>The question and answers is displayed.
+                <li>A timer counts down from 10 seconds as soon as the answers are displayed
+                    <li>When the player’s choose/ tap one of the answers this should be visible as "selected" and indicate a
+                        correct or wrong answer.</li>
+                    <li>If the player have not chosen an answer when there are three seconds left a visible element should be
+                        displayed indicating "time is running out"</li>
+                    <li>If answer is correct
+                        <ul>
+                            <li>Animation of score</li>
+                        </ul>
+                    </li>
+                    <li>If answer is wrong or time is up
+                        <ul>
+                            <li>When the timer hits 0 a message should say "Time is up". This is shown for 5 seconds.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>End with a 5 second timer to allow for Modo Shop interaction (if shop is opened, the timer stops and
+                        the game continues after shop is closed).</li>
+    </ul>
+</div>
+
+
+
+
+
+@@include('../assets/partials/footer.html')

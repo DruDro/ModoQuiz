@@ -1,5 +1,6 @@
 const gulp = require('gulp'),
     watch = require('gulp-watch'),
+    browserSync = require('browser-sync').create(),
     $ = require('cheerio'),
     filerigger = require('gulp-file-include'),
     sass = require('gulp-sass'),
@@ -165,8 +166,12 @@ gulp.task('publish', function () {
         .pipe(gulp.dest(path.build.chm));
 });
 
-gulp.task('clean', ['publish'], function () {
-    return run(`rimraf articles assets index.html ${chm}`).exec();
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./dist/web/"
+        }
+    });
 });
 
 gulp.task('build', [
@@ -177,8 +182,8 @@ gulp.task('build', [
     'chm:build'
 ], function () {
     gulp.start('clean');
+    browserSync.reload();
 });
-
 
 gulp.task('watch', function () {
     watch(path.watch.html, function (event, cb) {
@@ -195,7 +200,8 @@ gulp.task('watch', function () {
     });
 });
 
+gulp.task('clean', ['publish'], function () {
+    return run(`rimraf articles assets index.html ${chm}`).exec();
+});
 
-
-
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build','browser-sync', 'watch']);

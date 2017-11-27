@@ -1,0 +1,9 @@
+
+</div></main>
+<main class="footnotes">
+    <ul>
+        @@for (var i = 0; i < arr.length; i++) {
+            <li><a name="`+arr[i].anchor+`"></a><p><sup><b>`+arr[i].anchor+`</b></sup> `+arr[i].text+`: <a href="`+arr[i].link+`" target="_blank">`+arr[i].link+`</a></p></li>
+        }
+    </ul>
+    <div style="display:none">

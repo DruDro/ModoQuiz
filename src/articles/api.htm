@@ -1,0 +1,32 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"The Modo Quiz API" })
+
+
+
+<div class="article__content">
+    <div class="abstract">A modern and secure access point for the Modo Quiz Game, and the Modo Quiz Backend </div>
+    <p>The Modo Quiz Application Programming Interface (API) will be the unified access point for the Modo Quiz games for Android
+        and iOS (and potentially Windows Phone), and the Backend. This will be a RESTful <sup><a href="#1">1</a></sup> cloud <sup><a href="#2">2</a></sup> service, prepared for
+        <a
+            href="https://azure.microsoft.com/en-us/" target="_blank">Microsoft Azure</a> for a scalable and persistent solution.
+    </p>
+</div>
+
+
+
+
+@@include('../assets/partials/footnotes.html', {    
+    "arr": [
+        {
+            "anchor":"1",
+            "link":"http://en.wikipedia.org/wiki/Representational_state_transfer",
+            "text": "REST"
+        },
+        {
+            "anchor":"2",
+            "link":"http://en.wikipedia.org/wiki/Cloud_computing",
+            "text": "Cloud Computing"
+        }
+    ]
+})
+
+@@include('../assets/partials/footer.html')

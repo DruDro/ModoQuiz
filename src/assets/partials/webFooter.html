@@ -33,8 +33,11 @@
             });
         }
     });
-    $('.toc-toggle').on("click touchend", function () {
-        $('.toc').toggleClass('hidden');
+    $(document).on("click touchend", function (e) {
+        if ($(e.target) == $('.toc-toggle')) {
+            e.preventDefault();
+            $('.toc').toggleClass('hidden');
+        }
     });
     function printFrame(e) {
         var beforePrint = function () {

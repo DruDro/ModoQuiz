@@ -1,0 +1,61 @@
+.header {
+    height:1px;
+    h1 {
+        display: table-cell;
+        vertical-align:middle;
+        font-size: 0;
+        line-height: 0;
+        margin: 0;
+        padding: 15px;
+        border-bottom: 1px solid #e0e0e0;
+        .resource-title {
+            font-size: .7em;
+        }
+    }
+    .product-logo,
+    .article__title {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .product-logo {
+        width: 100px;
+        padding: 0 15px 0 0;
+        img {
+            display: block;
+            margin: 0 auto;
+            height:60px;
+            max-width: 100%;
+            &.s {
+                display: none;
+            }
+        }
+    }
+    .product-title {
+        display:block;
+        font-size:.8rem;
+        font-weight:700;
+        color:#07f;
+    }
+    .article__title {
+        font-size: 28px;
+        font-weight: 300;
+        padding: 0 0 0 15px;
+        line-height: 1em;
+    }
+    @media screen and (max-width: 667px) {
+        .article__title {
+            font-size: 24px;
+        }
+        .product-logo {
+            width: 50px;
+            padding: 0;
+            img.l {
+                display: none;
+            }
+            img.s {
+                display: block;
+                height:auto;
+            }
+        }
+    }
+}

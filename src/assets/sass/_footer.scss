@@ -1,0 +1,11 @@
+.footer {
+    height:1px;
+    .copy {
+        display: table-cell;
+        text-align: center;
+        font-style: italic;
+        color: #777;
+        padding: 15px;
+        border-top: 1px solid #f0f0f0;
+    }
+}

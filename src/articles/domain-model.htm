@@ -1,0 +1,117 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"Domain Model" })
+
+
+
+<div class="article__content">
+    <div class="abstract">Modo Quiz is driven by data. Here is an outline of what will be stored in the database.
+    </div>
+    <p>This is a rough overview of the critical information stored per Domain Object in the Modo Quiz Domain Model.
+    </p>
+    <p>Upon delivery we will create a complete
+        <i>Unified Modeling Language (UML) Class Diagram</i>
+        <sup>
+            <a href="#3">3</a>
+        </sup> as part of the delivery. It will resemble this outline, but some changes are likely to happen over the course of
+        implementation. The only guarantee is that the domain model will be able to store all data needed to make the game
+        adhere to the behavioral specification in this document (and the implied behavior from the design resource). </p>
+
+
+
+    <h2>User</h2>
+    <ul>
+        <li>
+            Profile picture
+        </li>
+
+        <li>Display name </li>
+
+        <li>Full name </li>
+
+        <li>Gender </li>
+
+        <li>Birthday </li>
+
+        <li>City </li>
+
+        <li>Country </li>
+
+        <li>Email </li>
+
+        <li>Coins </li>
+
+        <li>Trophies: List&lt;Trophy&gt; </li>
+
+        <li>GameHistory: List&lt;Game&gt; </li>
+
+        </li>
+    </ul>
+
+    <h2>Question</h2>
+    <ul>
+        <li>Language</li>
+
+        <li>Category
+            <i># dropdown (or override, then admin must accept which will create new category)</i>
+        </li>
+
+        <li>Topic # same as category </li>
+
+        <li>Question id (from excel) </li>
+
+        <li>Question text </li>
+
+        <li>Question image </li>
+
+        <li>Difficulty rank </li>
+
+        <li>Hint </li>
+
+        <li>Alternatives </li>
+
+        <li>QuizAidsUsed </li>
+
+        <li>Contributor: User
+            <i># the person who added the question</i>
+        </li>
+
+        <li>Administrator: User
+            <i># the person who authorized the question</i>
+        </li>
+
+    </ul>
+    <h2>Trophy</h2>
+    <ul>
+        <li>Name</li>
+        <li>Progress</li>
+        <li>Description</li>
+    </ul>
+    <h2>QuizAid</h2>
+    <ul>
+        <li>Name</li>
+        <li>Price</li>
+    </ul>
+    <h2>Game</h2>
+    <ul>
+        <li>Challenger: User</li>
+        <li>Challengees: List&lt;User&gt;</li>
+    
+        <li>Name</li>
+    
+        <li>Questions: List&lt;Question&gt;</li>
+    
+        <li>QuestionsPerPhase
+            <i># default 6</i>
+        </li>
+    
+        <li>Phases
+            <i># default 3</i>
+        </li>
+    
+    </ul>
+</div>
+
+
+
+
+@@include('../assets/partials/footnotes.html', { "arr": [ { "anchor":"3", "link":"http://en.wikipedia.org/wiki/Class_diagram",
+"text": "Unified Modeling Language (UML) Class Diagram" } ]}) @@include('../assets/partials/footer.html')

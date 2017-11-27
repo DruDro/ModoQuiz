@@ -1,0 +1,49 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"The Modo Quiz Backend" })
+
+
+
+<div class="article__content">
+    <p>The Modo Quiz delivery will contain a simple, yet functional and powerful, backend where players can contribute new Questions
+        for the game to use.
+    </p>
+    <p>Modo Quiz Backend version 1 (which will be delivered as part of this project) will allow a Modo Quiz registered user
+        to log in to a contributor site; and contribute a Question. This will be done using a form with an interface that
+        should feel familiar to the user (every aspect of the Question Domain Model will be editable by creator, except for
+        internal system IDs). If no design is provided for this, Pixelware will employ a modified version of the industry
+        standard CSS template called
+        <b>Bootstrap</b>
+        with a modified color palette to match the Modo Quiz Game. If a design is provided, Pixelware will need to have some say
+        into what can and cannot be done within the timeline of this project.
+    </p>
+    <p>When a Question is contributed, an admin will then have to certify that the question is (at the very least): </p>
+    <ul>
+        <li>Not offensive
+            <sup>
+                <a href="#4">4</a>
+            </sup>
+        </li>
+
+        <li>Correct</li>
+
+        <li>Classified correctly (with category and topic) </li>
+
+
+    </ul>
+    <p>The creator and the admin will both get a list of close matches in order to warn about possible duplicates. The administrator
+        can change any part of the question. Upon certification, the contributor and the admin will be associated to the
+        Question. </p>
+</div>
+
+
+
+@@include('../assets/partials/footnotes.html', {    
+    "arr": [
+        {
+            "anchor":"4",
+            "link":"",
+            "text": "App Store and Google Play both have terms in relation to offensive language, we need to certify that we do not  endorse offensive language in any way"
+        }
+    ]
+})
+
+@@include('../assets/partials/footer.html')

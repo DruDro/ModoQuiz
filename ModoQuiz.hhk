@@ -49,7 +49,7 @@
 					</OBJECT>
 				
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Custom Categories"><param name="Name" value="Custom Categories">
+				<param name="Name" value="Custom Questions"><param name="Name" value="Custom Questions">
 				<param name="Local" value="articles\custom.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
@@ -68,6 +68,10 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Update History"><param name="Name" value="Update History">
 				<param name="Local" value="articles\update-history.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Latest Improvements"><param name="Name" value="Latest Improvements">
+				<param name="Local" value="articles\improvements.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Introduction"><param name="Name" value="Introduction">

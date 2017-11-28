@@ -1,0 +1,63 @@
+@@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"Latest Improvements" })
+
+
+
+<div class="article__content">
+    The latest improvements of the product since 2015 include:
+
+    <h2>Ability to manage Quiz</h2>
+    <p>On the app UI we will see the Custom category as one more carousel item.</p>
+    <p>Then different topics of this user's questions can be presented to user as sub-categories (list) under Custom Quiz category.
+        Questions of user, eventually, will be presented there under each sub-category.</p>
+    <h3>Feature turn-on</h3>
+    <p>
+
+        User should be able to activate via a code / qr code.</p>
+    <h3>[Back-end]</h3>
+
+    <p>We should have ability to manage the Quiz on a separate web page only. On this page we will have one page for each new
+        quiz added and then 1 page for questions per quiz.</p>
+
+    <p>If there is less than 6 custom questions added by user to the "Cutsom" category, we should add rest of the questions
+        by the similar approach we use in the "Random Challenge". Example: If user added only 4 questions, the rest 2 questions
+        will be taken by the app randomly from the existing questions database.</p>
+    <ol>
+        <li>Admins can manage both - questions from preset categories as well as customers' questions.</li>
+        <li>Users/customers can manage only their own questions. End users just log into their own profile (web page), and Create
+            Quiz > add questions.</li>
+    </ol>
+    <h2>If there are not users to play with, show a message</h2>
+    <p>Random challenge: If there are no users to play with, have a message in footer after searching for opponent text: "No
+        active opponent right now!"</p>
+    <h2>Make the posting to a wall in Facebook able to tag only specific friends</h2>
+    <p>Share to FB friend makes it visible only to a friend and not to "All Friends".</p>
+    <h2>Change font-color of the question based on what color the background has</h2>
+    <p>For different background colors of questions, we should make some logic which will change the color of question font
+        to be more readable. So, that on Yellow or light-red, -orange, or any other lighter backgrounds we use the "black"
+        color (check the exact color-code in the app) of the app. While on the darker backgrounds we should keep using the
+        white color for the purpose.</p>
+    <h2>Correct wordings of Push messages and add new if they are absent</h2>
+    <ul>
+        <li>
+            <b>Game start</b>: XXX wants to challenge you in ModoQuiz right now (is sent right after user was added/invited
+            to the game).</li>
+        <li>
+            <b>Your turn</b>: It's your turn in ModoQuiz </li>
+        <li>
+            <b>Result</b>: Get the result of your ModoQuiz game with XXX </li>
+    </ul>
+    <h2>Store a collection of tokens for push notfications to be sent to all devices</h2>
+    <p>In order to notify ALL devices by push notification in case user used same account from different devices, we need to
+        improve the tokens storage and keep a collection of them instead of a single one like it was before.</p>
+    <h2>Add the "Progress wheel" animation when action takes time</h2>
+    <p>In order to make UI obvious and prevent multiple taps while sending invitation to friends, the progress wheel was added
+        over the semi-transparent background over the screen. Repeated touches are not applied until the first request completes.</p>
+    <h2>Change the sounds playing on Positive and Negative answers</h2>
+
+</div>
+
+
+
+
+
+@@include('../assets/partials/footer.html')

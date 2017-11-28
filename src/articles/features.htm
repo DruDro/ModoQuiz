@@ -2,92 +2,41 @@
 
 
 <div class="article__content">
-    <a name="geninfo"></a>
-    <h2>General Info</h2>
-    <h2>1</h2>[Client side] Description
-    <br> On the app UI we will see the Custom Quiz / [Username's Quiz] / Kristian's Quiz as one more carousel item.
-    <br> Then different categories of this user's questions can be presented to user as sub-categories (list) under Custom Quiz
-    category.
-    <br> Questions of user, eventually, will be presented there under each sub-category.
-    <br> Feature turn-on
-    <br> User should be able to activate via a code / qr code.
-    <br> [Back-end]
-    <br> We should have ability to manage the Quiz on a separate web page only. On this page we will have one page for each new
-    quiz added and then 1 page for questions pr quiz.
-    <br> 1) Admins can manage both - questions from preset categories as well as customers' questions.
-    <br> 2) Users/customers can manage only their own questions. End users just log into their own profile (web page), and Create
-    Quiz > add questions.
-    <br> Let's have it working this way:
-    <br> If there is less than 6 custom questions added by user to the "Cutsom" category, we should add rest of the questions
-    by the similar approach we use in the "Random Challenge".
-    <br> Example: If user added only 4 questions, the rest 2 questions will be taken by the app randomly from the existing questions
-    database.
-    <h2>2 ui</h2>
-    For different background colors of questions, we should make some logic which will change the color of question font to be
-    more readable.
-    <br> So, that on Yellow or light-red, -orange, or any other lighter backgrounds we use the "black" color (check the exact
-    color-code in the app) of the app.
-    <br> While on the darker backgrounds we should keep using the white color for the purpose.
-    <h2>3</h2> Make the posting to a wall in Facebook able to tag only specific friends Share to FB friend should make it visible
-    only to a friend and not to "All Friends".
-    <h2>4</h2>
-    [Random challenge] If there are not users to play with, show a message
-    <br> Random challenge: If there are no users to play with, have a message in footer after searching for opponent text: "No
-    active opponent right now!"
-    <h2>5</h2>
-    Correct wordings of Push messages and add new if they are absent
-    <br>1. Game start: XXX wants to challenge you in ModoQuiz right now (is sent right after user was added/invited to the game).
-    <br> 2. Your turn: It's your turn in ModoQuiz
-    <br> 3. Result: Get the result of your ModoQuiz game with XXX
-    <h2>6</h2>
-    Store a collection of tokens for push notfications to be sent to all devices
-    <p>In order to notify ALL devices by push notification in case user used same account from different devices, we need to
-        improve the tokens storage and keep a collection of them instead of a single one like it is right now.</p>
-    <h2>7</h2>
-    under friends and also under choose an opponent via Facebook - search function
-    <p>As explained above. here is a
-        <a href="https://monosnap.com/file/tlAOCggkSve0BbhdIG82716Fm0LoYO">screenshot explaining</a>
-    </p>
-    <p>This works well. Just one small thing. When I open app I start in friends section with Facebook/invite section. it should
-        be on friends as main.. and people can choose to go to invite. OK?</p>
-    <h2>8</h2>
-    admin interface
-    <br>
-    <p>Customer has asked for a place, where they can change certain parameters of the game. We can expand on this in future.
-        But initially, customer (NOT user) should be able to set:</p>
-    Initial coins a user will have when setting up a new account
-    <br> How many coins used for each option (i.e. Hint, 50/50, etc.)
-    <br> How many seconds for each question. Is this a large job? I guess today it is almost hard coded.. but, we need to make
-    it admin friendly.
-    <br> I need someone to tell me amount of work that will go into this please.
-    <p>I like mockups. I have small detail for text. also, lets make it so it is easy for you to change text if needed...
-        <br> https://monosnap.com/file/rGOoiW2UI6UaZC9idL7Q08VhjTJ0mE
-        <br> I have added one more question in this. which I forgot from before. This is if price can be set from here in app
-        store and google play.. Or is this hard? and must be done in the stores?</p>
-    <h2>9</h2>
-    Add the "Progress wheel" animation when action takes time
-    <p>"i tested the invite feature. one thing, perhaps it is Facebook, but once I click it takes a few seconds to understand
-        that something is happening…and I held the invite button for a while… so my daughter got three invites."" So, please
-        add the progress wheel over the semi-transparent background over the screen. Also make sure repeated touches are
-        not applied until the first one request completes.</p>
-    <h2>10</h2>
-    [FB] Taggable friends notification in Facebook
-    <br> It appears as she has been tagged with the text we wrote. I think it would be better if it when too her only… not so
-    all friends can see also.. People dont love to be tagged for all friends to see. if it is possible to just alert that
-    user, this is better.. can you check?
-    <br> To restrict certain user groups we need to use FbUI, but FbUI hsn't ability to tag anyone. So it can't be used for taggableFriends
-    and for invitation to install the game. We can do such operations for friends who already installed the app
-    <br> Jan Christian replied: Tet's leave as is.
-    <br> A question from Jan C: Can we tag on in future link to I.e App Store?
-    <br> Roman: you mean to have there different link, like a direct URL to the App Store market with this app?
-    <br> [4:52:35 PM] Jan Christian Berger: Yes
-    <br> Alexander Kodenko added a comment - 23/Oct/15 6:15 PM we can add any link to post
-    <h2>11</h2>
-    Change the sounds playing on Positive and Negative answers
-    <br> 1. Please play the sound from attachment when user gives a wrong answer - Error_Notification chime error low tone descend_BLASTWAVEFX_27061.wav
-    <br> 2. Play this sound when user gives a positive answer - Positive_Sound design accent ascending twinkle short reverb_BLASTWAVEFX_29139.wav
-</div>
+    <h2>Multiple languages</h2>
+    <p>Modo Quiz doesn't limit you with one language - while <a href="login.htm">signing up</a> to Modo Quiz, you can select a comfortable language from the list. Or do it later on the SETTINGS page</p>
+    <p class="center">
+            <a href="../assets/images/screenshots/settings.png" data-fancybox>
+                <img src="../assets/images/screenshots/settings.png" alt="ModoQuiz" class="screen inline">
+            </a>
+            <a href="../assets/images/screenshots/signup.png" data-fancybox>
+                <img src="../assets/images/screenshots/signup.png" alt="ModoQuiz" class="screen inline">
+            </a>
+        </p>
 
+        <h2>Play One On One or with multiple players</h2>
+        <p>There are two quiz modes available in Modo Quiz: <a href="play-friend.htm">ONE ON ONE</a> and <a href="play-friends.htm">CHALLENGE</a>. Any number of players can join a challenge, if you invite them to take part in a quiz. Respectively, in the ONE ON ONE mode, you will compete with a single opponent for 3 rounds, 6 questions each.</p>        <p class="center">
+                <a href="../assets/images/screenshots/one-on-one-quiz.png" data-fancybox>
+                    <img src="../assets/images/screenshots/one-on-one-quiz.png" alt="ModoQuiz" class="screen inline">
+                </a>
+                <a href="../assets/images/screenshots/challenge-quiz.png" data-fancybox>
+                    <img src="../assets/images/screenshots/challenge-quiz.png" alt="ModoQuiz" class="screen inline">
+                </a>
+                </p>
+        <h2>Facebook integration, quiz sharing, making friends</h2>
+        <p>Modo Quiz allows and encourages you to <a href="play-friends.htm">post quiz</a> invitations to your Facebook wall or directly to your friends. You can <a href="add-friends.htm">add friends</a> both within the game, if you know the username of a person, or invite friends from Facebook. The more you share and make friends the more <a href="modoshop.htm">rewards</a> you get.</p>
+        <p class="center">
+                <a href="../assets/images/screenshots/add-friends.png" data-fancybox>                    <img src="../assets/images/screenshots/add-friends.png" alt="ModoQuiz" class="screen inline"></a>
+                    <a href="../assets/images/screenshots/post-to-facebook.png" data-fancybox>
+                        <img src="../assets/images/screenshots/post-to-facebook.png" alt="ModoQuiz" class="screen inline"></a>
+            </p>
+        <h2>Custom questions and topics</h2>
+        <p>There is a huge list of preset categories of questions in Modo Quiz. Any sphere of life, culture, general knowledge, etc. can be selected to start a quiz. But, moreover, you can <a href="custom.htm">create your own topics and questions</a> via the Modo Quiz Admin Panel. Be original!</p>
+        
+        <p class="center">
+                    <a href="../assets/images/screenshots/custom-question.png" data-fancybox>
+                        <img src="../assets/images/screenshots/custom-question.png" alt="ModoQuiz" class="screen inline large"></a>
+            </p>
+    </div>
 
 
 @@include('../assets/partials/footer.html')

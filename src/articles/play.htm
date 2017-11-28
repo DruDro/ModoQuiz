@@ -1,7 +1,17 @@
 @@include('../assets/partials/header.html', { "productTitle":"ModoQuiz", "title":"How to Play?" })
 
-
-
+<div class="article__header">
+    <h2>Table of Contents</h2>
+    <ul class="local-toc">
+        <li>
+            <a href="#desc">User Flow Description</a>
+        </li>
+        <li>
+            <a href="#chart">User Flow Chart</a>
+        </li>
+    </ul>
+</div>
+<a name="desc"></a>
 <div class="article__content">
     <h2>Quiz Mode</h2>
     <p>From the home screen, if "Start New Quiz" is tapped, we’ll go to this screen. The CHOOSE YOUR GAME screen has three options:
@@ -48,22 +58,43 @@
     </p>
     <p>The main difference is that in the one-on-one mode there are rounds by 6 questions, and in the challenge mode - you answer
         all questions in one go.</p>
-        <p class="center">
-                <a href="../assets/images/screenshots/one-on-one-quiz.png" data-fancybox="group">
-                    <img src="../assets/images/screenshots/one-on-one-quiz.png" alt="ModoQuiz" class="screen inline">
-                </a>
-                <a href="../assets/images/screenshots/challenge-quiz.png" data-fancybox="group">
-                    <img src="../assets/images/screenshots/challenge-quiz.png" alt="ModoQuiz" class="screen inline">
-                </a>
-                </p>
-                <p>In any quiz mode, you can use "aids", such as:</p>
-                <ul>
-                    <li><p><b>50/50</b> - When this option is selected, 50% of the wrong answers are removed </p></li>
-                    <li><p><b>More time</b> - When this option is selected, the countdown timer adds 15 seconds.</p></li>
-                    <li><p><b>Hint</b> - When this option is selected a text hint is given to the player. This hint is relevant to the question to make it easier to answer.</p></li>
-                    <li><p><b>Skip</b> - When this option is selected, the player skips the current question with no loss in score.</p></li>
-                </ul>
-                <p class="note">See the <a href="modoshop.htm">Modoshop</a> article to learn how to make aids available in the quiz.</p>
+    <p class="center">
+        <a href="../assets/images/screenshots/one-on-one-quiz.png" data-fancybox="group">
+            <img src="../assets/images/screenshots/one-on-one-quiz.png" alt="ModoQuiz" class="screen inline">
+        </a>
+        <a href="../assets/images/screenshots/challenge-quiz.png" data-fancybox="group">
+            <img src="../assets/images/screenshots/challenge-quiz.png" alt="ModoQuiz" class="screen inline">
+        </a>
+    </p>
+    <p>In any quiz mode, you can use "aids", such as:</p>
+    <ul>
+        <li>
+            <p>
+                <b>50/50</b> - When this option is selected, 50% of the wrong answers are removed </p>
+        </li>
+        <li>
+            <p>
+                <b>More time</b> - When this option is selected, the countdown timer adds 15 seconds.</p>
+        </li>
+        <li>
+            <p>
+                <b>Hint</b> - When this option is selected a text hint is given to the player. This hint is relevant to the
+                question to make it easier to answer.</p>
+        </li>
+        <li>
+            <p>
+                <b>Skip</b> - When this option is selected, the player skips the current question with no loss in score.</p>
+        </li>
+    </ul>
+    <p class="note">See the
+        <a href="modoshop.htm">Modoshop</a> article to learn how to make aids available in the quiz.</p>
+
+    <a name="chart"></a>
+    <h2>User Flow Chart</h2>
+    <div class="flowchart">
+        <img class="chart" src="../assets/images/flowcharts/ModoQuiz.png">
+
+    </div>
 </div>
 
 

@@ -60,6 +60,10 @@
 				<param name="Name" value="Modoshop"><param name="Name" value="Modoshop">
 				<param name="Local" value="articles\modoshop.htm">
 				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Settings"><param name="Name" value="Settings">
+				<param name="Local" value="articles\settings.htm">
+				</OBJECT>
 		
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Developer Reference"><param name="Name" value="Developer Reference">

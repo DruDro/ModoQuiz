@@ -4,7 +4,7 @@
 <HEAD>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modo Quiz WiceAS</title>
+    <title>Fixlist Reference</title>
     <link rel="stylesheet" href="assets/style.css">
     <style>
         :focus {
@@ -22,6 +22,7 @@
             display: block;
             width: 100vw;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:100%;
         }
 
         .wrapper {
@@ -57,14 +58,15 @@
             min-width: 300px;
             vertical-align: top;
             overflow: auto;
-            position:relative;
-            z-index:2;
+            position: relative;
+            z-index: 2;
             transition: all .3s ease-in-out;
-                box-shadow: 0 0 40px -15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 40px -15px rgba(0, 0, 0, 0.6);
         }
 
         .toc:hover {
             background: #ebebeb;
+            box-shadow: 0 0 20px -9px rgba(0, 0, 0, 0.6);
         }
 
         .toc-header {
@@ -75,26 +77,32 @@
         .toc h2 {
             padding: 0;
             display: table-cell;
-            text-align:center;
+            text-align: center;
             margin: 0;
             transition: all .15s ease-in-out;
         }
 
         .toc h2 a {
-            display: block;
             padding: 15px;
             font-weight: 400;
             text-decoration: none;
             color: #454545;
+            display:block;
+            height: 48px;
+                text-decoration: none;
+                background-size: 24px ;
+                background-position: center;
+                background-repeat: no-repeat;
+                transition:all .15s ease-in-out;
         }
 
         .toc h2 a:hover,
         .toc h2 a:focus {
-            text-decoration: underline;
+            background-color:#fff;
         }
 
         .toc h2 a.active {
-            background: #fff;
+            background-color: #fff;
         }
 
         .toc ul {
@@ -106,10 +114,10 @@
 
         .toc ul li {
             position: relative;
-            padding: 0 0 0 18px;
+            padding: 0 0 0 22px;
         }
 
-        .toc>ul {
+        .toc>ul, #searchList {
             margin: 0;
             padding: 15px;
             display: block;
@@ -123,15 +131,20 @@
 
         .toc ul a {
             text-decoration: none;
-            padding: 4px 0;
-            display: block;
-            color: #454545;
-            cursor:pointer
+            padding: 4px;
+            display: inline-block;
+            color: #555;
+            cursor: pointer;
+            transition:all .15s ease-in-out;
+            outline:0 #ebebeb;
         }
+        
+                .toc ul a:hover {
+                    color:#000;
+                }
 
-        .toc ul a:hover,
-        .toc ul a:focus {
-            text-decoration: underline;
+                .toc ul a:focus,.toc ul a.active  {
+            box-shadow: 0 0 2px 1px rgba(0,0,0,.5);
         }
 
         .toc li>i {
@@ -144,7 +157,7 @@
             position: absolute;
             width: 30px;
             height: 30px;
-            left: -11px;
+            left: -6px;
             top: -2px;
             background-size: 50%;
             background-position: center;
@@ -174,7 +187,7 @@
             height: 40px;
             border-radius: 0 25px 25px 0;
             box-shadow: 3px 0 5px 0px rgba(0, 0, 0, .5);
-            background-color: rgba(235, 235, 235, .8);
+            background-color: #fff;
             color: #454545;
             text-align: center;
             line-height: 40px;
@@ -189,6 +202,62 @@
             text-decoration: none;
         }
 
+        #alphabet {
+            padding: 15px;
+            border: 1px solid #ccc;
+            margin: 0 0 15px;
+        }
+
+        #alphabet ul {
+            display: block;
+            text-align: center;
+        }
+
+        #alphabet ul li {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        #alphabet ul li span {
+            color: #ccc;
+            padding: 5px 8px;
+        }
+
+        #alphabet ul li a {
+            text-decoration: underline;
+            display: inline-block;
+            padding: 5px 8px;
+            transition: all .15s ease-in-out;
+            color: #C24729;
+            border-radius:50%;
+        }
+
+        #alphabet ul li a:hover {
+            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .45);
+        }
+
+        .indexLetter {
+            position: sticky !important;
+            top: 0;
+            z-index: 9;
+            padding: 0 !important;
+        }
+
+        .toc h3 {
+            margin: 0;
+            color: #C24729;
+            display: inline-block;
+            padding: 0;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            width: 40px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
         .frameholder {
             display: table-cell;
             position: relative;
@@ -196,7 +265,7 @@
             overflow: hidden;
             -webkit-overflow-scrolling: touch;
             overflow: auto;
-            height:100vh;
+            height: 100vh;
         }
 
         #article {
@@ -211,6 +280,28 @@
             overflow: auto;
         }
 
+        #search {
+            display:none;
+        }
+        #searchList {
+            display:block;
+            list-style:none;
+            max-height: calc(100vh - 105px);
+        }
+        .autocomplete {
+            height: 37px;
+            border:0;
+            border-bottom:1px solid #ebebeb;
+            width:100%;
+            padding: 0 15px;
+            position:relative;
+            z-index:1;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:100%;
+        }
+        .autocomplete:focus{
+            box-shadow:0 0 5px 0 rgba(0,50,255,.5);
+        }
         @media print {
             .toc {
                 display: none;
@@ -236,7 +327,7 @@
                 z-index: 2;
                 overflow: visible;
                 resize: none;
-                width: 280px !important;
+                width: calc(100vw - 50px) !important;
                 min-width: 0;
                 box-shadow: 0 0 25px 5px rgba(0, 0, 0, .5);
             }
@@ -248,14 +339,13 @@
                 visibility: hidden;
             }
             .toc.hidden {
-                left: -280px;
+                left: calc(-100vw + 50px);
                 box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
             }
             .toc-toggle {
                 display: block;
             }
             .toc-toggle:hover {
-                background-color: rgba(235, 235, 235, 1);
                 box-shadow: 4px 0 6px 0px rgba(0, 0, 0, .5);
             }
             .toc-toggle:active {
@@ -280,18 +370,15 @@
             <a href="#" class="toc-toggle">☰</a>
             <div class="toc-header">
                 <h2>
-                    <a href="#toc" class="active">Contents</a>
+                    <a href="#toc" title="Table of Contents" class="active" style="background-image: url(./assets/images/icons/tree.png);">&nbsp;</a>
                 </h2>
                 <h2>
-                    <a href="#index">A&mdash;Z</a>
+                    <a href="#search" title="Search" style="background-image: url(./assets/images/icons/search.png);">&nbsp;</a>
                 </h2>
                 <h2>
-                    <a href="" onclick="printFrame()" style="    
-                display: inline-block;
-                text-decoration: none;
-                background-size: 70%;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-image: url(./assets/images/icons/icons8-print.png);">&nbsp;</a>
+                    <a href="#index" title="Index" style="background-image: url(./assets/images/icons/index.png);">&nbsp;</a>
+                </h2>
+                <h2>
+                    <a href="" title="Print" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);">&nbsp;</a>
                 </h2>
             </div>

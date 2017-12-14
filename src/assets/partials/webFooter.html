@@ -95,14 +95,6 @@
             window.onbeforeprint = beforePrint();
         }
     
-        $("#article").on('load', function () {
-            var pageTitle = document.getElementById("article").contentDocument.title;
-            document.title = pageTitle;
-            let obj = {};
-            let loc = document.getElementById("article").contentWindow.location.toString();
-            let url = loc.substring(loc.lastIndexOf('/') + 1);
-            history.pushState(obj, pageTitle, '?' + url);
-        });
     
         function Index(list) {
             var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
@@ -174,6 +166,14 @@
         }
     
         function frameLoad(frame) {
+            
+            var pageTitle = document.getElementById("article").contentDocument.title;
+            document.title = pageTitle;
+            let obj = {};
+            let loc = document.getElementById("article").contentWindow.location.toString();
+            let url = loc.substring(loc.lastIndexOf('/') + 1);
+            history.replaceState(obj, pageTitle, '?' + url);
+
             const tocLinks = $('.toc li a[href]');
     
             tocLinks.each(function () {

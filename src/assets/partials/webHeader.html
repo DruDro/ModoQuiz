@@ -22,7 +22,7 @@
             display: block;
             width: 100vw;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size:100%;
+            font-size: 100%;
         }
 
         .wrapper {
@@ -87,18 +87,18 @@
             font-weight: 400;
             text-decoration: none;
             color: #454545;
-            display:block;
+            display: block;
             height: 48px;
-                text-decoration: none;
-                background-size: 24px ;
-                background-position: center;
-                background-repeat: no-repeat;
-                transition:all .15s ease-in-out;
+            text-decoration: none;
+            background-size: 24px;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all .15s ease-in-out;
         }
 
         .toc h2 a:hover,
         .toc h2 a:focus {
-            background-color:#fff;
+            background-color: #fff;
         }
 
         .toc h2 a.active {
@@ -117,7 +117,8 @@
             padding: 0 0 0 22px;
         }
 
-        .toc>ul, #searchList {
+        .toc>ul,
+        #searchList {
             margin: 0;
             padding: 15px;
             display: block;
@@ -135,16 +136,19 @@
             display: inline-block;
             color: #555;
             cursor: pointer;
-            transition:all .15s ease-in-out;
-            outline:0 #ebebeb;
+            transition: all .15s ease-in-out;
+            outline: 0 #ebebeb;
+            border-radius:3px;
         }
-        
-                .toc ul a:hover {
-                    color:#000;
-                }
 
-                .toc ul a:focus,.toc ul a.active  {
-            box-shadow: 0 0 2px 1px rgba(0,0,0,.5);
+        .toc ul a:hover {
+            color: #000;
+        }
+
+        .toc ul a:focus,
+        .toc ul a.active {
+            background:  #c24729;
+            color:#fff;
         }
 
         .toc li>i {
@@ -230,12 +234,17 @@
             display: inline-block;
             padding: 5px 8px;
             transition: all .15s ease-in-out;
-            color: #C24729;
-            border-radius:50%;
+            color: #c24729;
+            border-radius: 50%;
         }
+        
+                #alphabet ul li a:hover {
+                    background:#c24729;
+                    color:#fff;
+                }
 
-        #alphabet ul li a:hover {
-            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .45);
+                #alphabet ul li a:active,#alphabet ul li a:focus {
+            box-shadow:0 0 1px rgba(0,0,0,1) inset;
         }
 
         .indexLetter {
@@ -247,7 +256,7 @@
 
         .toc h3 {
             margin: 0;
-            color: #C24729;
+            color: #c24729;
             display: inline-block;
             padding: 0;
             height: 40px;
@@ -281,27 +290,62 @@
         }
 
         #search {
-            display:none;
+            display: none;
         }
+
         #searchList {
-            display:block;
-            list-style:none;
+            display: block;
+            list-style: none;
             max-height: calc(100vh - 105px);
         }
+
         .autocomplete {
             height: 37px;
-            border:0;
-            border-bottom:1px solid #ebebeb;
-            width:100%;
+            border: 0;
+            border-bottom: 1px solid #ebebeb;
+            width: 100%;
             padding: 0 15px;
-            position:relative;
-            z-index:1;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size:100%;
+            position: relative;
+            z-index: 1;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 100%;
         }
-        .autocomplete:focus{
-            box-shadow:0 0 5px 0 rgba(0,50,255,.5);
+
+        ::-webkit-input-placeholder {
+            color: #bbb;
         }
+        /* Firefox < 19 */
+        :-moz-placeholder {
+            color: #bbb;
+        }
+        /* Firefox > 19 */
+        ::-moz-placeholder {
+            color: #bbb;
+        }
+        /* Internet Explorer 10 */
+        :-ms-input-placeholder {
+            color: #bbb;
+        }
+/* 
+        :focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+        :focus:-moz-placeholder {
+            color: transparent;
+        }
+        :focus::-moz-placeholder {
+            color: transparent;
+        }
+        :focus:-ms-input-placeholder {
+            color: transparent;
+        } */
+        
+        
+
+        .autocomplete:focus {
+            box-shadow: 0 0 5px 0 rgba(0, 50, 255, .5);
+        }
+
         @media print {
             .toc {
                 display: none;
@@ -327,8 +371,8 @@
                 z-index: 2;
                 overflow: visible;
                 resize: none;
-                width: calc(100vw - 50px) !important;
-                min-width: 0;
+                width: 400px !important;
+                min-width: 270px;
                 box-shadow: 0 0 25px 5px rgba(0, 0, 0, .5);
             }
             .overlay {
@@ -339,7 +383,7 @@
                 visibility: hidden;
             }
             .toc.hidden {
-                left: calc(-100vw + 50px);
+                left: -400px;
                 box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
             }
             .toc-toggle {
@@ -361,13 +405,21 @@
                 height: 100vh;
             }
         }
+        @media screen and (max-width:767px) {
+            .toc {
+                width: calc(100vw - 50px) !important;
+            }
+            .toc.hidden {
+                left: calc(-100vw + 50px);
+            }
+        }
     </style>
 </HEAD>
 
 <body>
     <div class="wrapper">
         <div class="toc hidden">
-            <a href="#" class="toc-toggle">☰</a>
+            <span class="toc-toggle">☰</span>
             <div class="toc-header">
                 <h2>
                     <a href="#toc" title="Table of Contents" class="active" style="background-image: url(./assets/images/icons/tree.png);">&nbsp;</a>

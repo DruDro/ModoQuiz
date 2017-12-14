@@ -1,32 +1,53 @@
 <div id="search">
-    <input type="text" class="autocomplete"><ul id="searchList"></ul></div>
+    <input type="text" class="autocomplete" placeholder="Search">
+    <ul id="searchList"></ul>
+</div>
 </div>
 <div class="overlay hidden"></div>
 <div class="frameholder">
-    <iframe src="articles/overview.htm" frameborder="0" id="article" name="article"></iframe>
+    <iframe src="articles/overview.htm" frameborder="0" id="article" name="article" onLoad="frameLoad(this)"></iframe>
 </div>
 </div>
+
+
 <script src="./assets/jquery-3.2.1.min.js"></script>
 <script>
+    $(function(){
+        if(window.location.toString().indexOf('?') !== -1){
+            let url = window.location.toString().substring(window.location.toString().indexOf('?') + 1).replace(/[#\,%20]/g, '');
+            url = '/articles/' + url + '.htm';
+            document.getElementById('article').contentWindow.location = url;
+        }
+    });
     $('.toc h2 a').click(function (e) {
         e.preventDefault();
+
         var tabLink = $(this),
             tab = $(tabLink.attr("href"));
-        tabLink.addClass('active').closest('h2').siblings().children('a').removeClass('active');
+
+        tabLink.addClass('active')
+            .closest('h2')
+            .siblings()
+            .children('a').removeClass('active');
+
         tab.show().siblings('ul, #search').hide();
         $(".autocomplete").focus();
     });
-    $('.toc ul a[href]').click(function(){
-            $('.toc ul a[href]').removeClass('active');
-            $(this).addClass('active');
-        }
+    $('.toc ul a[href]').click(function () {
+        $('.toc ul a[href]').removeClass('active');
+        $(this).addClass('active');
+    }
     );
     $('.toc li').each(function () {
         var li = $(this);
+
         li.prepend('<i></i>');
+
         if ($(this).children('ul').length) {
             li.addClass('folder closed');
+
             var toggler = li.children('i, a');
+
             toggler.click(function (e) {
                 if (li.hasClass('open') && !$(this).is('a')) {
                     li.removeClass('open').addClass('closed');
@@ -42,7 +63,8 @@
             });
         }
     });
-    $(document).on("mouseup touchend", function (e) {
+    $(document).on("mouseup touchend", function(e) {
+
         if (!$(e.target).closest('.toc, .toc *, .toc-toggle').length) {
             $('.toc, .overlay').addClass('hidden');
         }
@@ -58,8 +80,6 @@
             window.frames["article"].focus();
             window.frames["article"].print();
         };
-        var afterPrint = function () {
-        };
 
         if (window.matchMedia) {
             var mediaQueryList = window.matchMedia('print');
@@ -73,28 +93,37 @@
         }
 
         window.onbeforeprint = beforePrint();
-        window.onafterprint = afterPrint();
     }
 
     $("#article").on('load', function () {
         var pageTitle = document.getElementById("article").contentDocument.title;
         document.title = pageTitle;
+        let obj = {};
+        let loc = document.getElementById("article").contentWindow.location.toString();
+        let url = loc.substring(loc.lastIndexOf('/') + 1).replace(/[#\,%20]/g, '').replace(/\.htm/,'');
+        history.pushState(obj, pageTitle, '?' + url);
     });
+
     function Index(list) {
         var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
         var HTMLAlphabet = $('<li id="alphabet"></li>');
         var HTMLAlphabetUL = $('<ul></ul>');
         for (var i = 0; i < alphabet.length; i++) {
-            var firstOfI = $(list).children('li').toArray().filter(function (item) {
-                return $(item).text().charAt(1) == alphabet[i];
-            });
+            var firstOfI = $(list)
+                .children('li')
+                .toArray()
+                .filter(function (item) {
+                    return $(item).text().charAt(1) == alphabet[i];
+                });
             firstOfI = firstOfI[0];
 
             $('<li class="indexLetter"><a name="' + alphabet[i] + '"></a><h3>' + alphabet[i] + '</h3></li>').insertBefore(firstOfI);
             if (firstOfI) {
-                HTMLAlphabetUL.append('<li><a href="#' + alphabet[i] + '">' + alphabet[i] + '</a></li>');
+                HTMLAlphabetUL
+                    .append('<li><a href="#' + alphabet[i] + '">' + alphabet[i] + '</a></li>');
             } else {
-                HTMLAlphabetUL.append('<li><span>' + alphabet[i] + '</span></li>');
+                HTMLAlphabetUL
+                    .append('<li><span>' + alphabet[i] + '</span></li>');
             }
 
         }
@@ -107,31 +136,61 @@
 
 
 
-let indexList = document.querySelectorAll('#index li a[href]');
-let pages = [...indexList];
-pages = pages.filter(page => {
-    return page.getAttribute("href").indexOf('#') == -1;
-});
-let autocompleteInput = document.querySelector(".autocomplete");
+    let indexList = document.querySelectorAll('#index li a[href]');
+    let pages = [...indexList];
 
-let autocompleteValue = autocompleteInput.value;
+    pages = pages.filter(page => {
+        return page.getAttribute("href").indexOf('#') == -1;
+    });
 
-autocompleteInput.addEventListener("input", showRes);
-let autoCompleteList = document.querySelector('#searchList');
-let autoList = pages.map(page => '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">'+ page.textContent +'</a></li>');
-autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
+    let autocompleteInput = document.querySelector(".autocomplete");
+    let autocompleteValue = autocompleteInput.value;
 
-function showRes() {
-  autocompleteValue = autocompleteInput.value;
-  console.log(autocompleteValue);
-  let coutriesComplete = pages.filter(page => {
-    return page.textContent.toUpperCase().indexOf(autocompleteValue.toUpperCase()) !== -1 || page.getAttribute("href").substring(page.getAttribute("href").lastIndexOf('articles') + 1).toUpperCase().indexOf(autocompleteValue.toUpperCase()) !== -1
-  });
-  autoList = coutriesComplete.map(page => '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">'+ page.textContent +'</a></li>');
-  autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
-}
+    autocompleteInput.addEventListener("input", showRes);
 
+    let autoCompleteList = document.querySelector('#searchList');
+    let autoList = pages
+        .map(page => '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>');
 
+    autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
+
+    function showRes() {
+        autocompleteValue = autocompleteInput.value;
+
+        let coutriesComplete = pages.filter(page => {
+            return page.textContent
+                .toUpperCase()
+                .indexOf(autocompleteValue.toUpperCase()) !== -1
+                || page.getAttribute("href")
+                    .substring(page.getAttribute("href").lastIndexOf('articles') + 1)
+                    .toUpperCase()
+                    .indexOf(autocompleteValue.toUpperCase()) !== -1
+        });
+
+        autoList = coutriesComplete
+            .map(page => '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>');
+
+        autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
+    }
+
+    function frameLoad(frame) {
+        const tocLinks = $('.toc li a[href]');
+
+        tocLinks.each(function () {
+            const link = $(this);
+            if (frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1)) {
+                tocLinks.removeClass('active');
+                setTimeout(function () {
+                    link.addClass('active');
+                    const li = link.closest('.folder');
+
+                    li.removeClass('closed').addClass('open');
+                    li.children('ul').first().slideDown(300);
+                }, 0);
+
+            }
+        });
+    }
 
 </script>
 </BODY>

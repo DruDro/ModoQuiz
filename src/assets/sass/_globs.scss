@@ -78,7 +78,7 @@ body {
     .article {
         display: block;
         height: auto;
-        &__header {
+        &__header, &__footer {
             display: none;
         }
     }

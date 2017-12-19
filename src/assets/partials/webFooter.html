@@ -176,7 +176,6 @@
     }
 
     function frameLoad(frame) {
-
         var pageTitle = document.getElementById("article").contentDocument.title;
         document.title = pageTitle;
         let obj = {};
@@ -200,6 +199,9 @@
 
             }
         });
+        if($(window).width() < 1024){
+            $('.toc, .overlay').addClass('hidden');
+        }
     }
 
 </script>

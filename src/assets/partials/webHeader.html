@@ -4,8 +4,9 @@
 <HEAD>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixlist Reference</title>
+    <title>Middags Huset Reference</title>
     <link rel="stylesheet" href="assets/style.css">
+
     <style>
         :focus {
             outline: 0;
@@ -23,7 +24,7 @@
             width: 100vw;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 100%;
-            min-width:320px;
+            min-width: 320px;
         }
 
         .wrapper {
@@ -43,73 +44,88 @@
             top: 0;
             left: 0;
             transition: all .3s ease-in-out;
-            opacity:1;
-            visibility:visible;
-        }
-        .overlay.hidden{
-            opacity:0;
-            visibility:hidden;
+            opacity: 1;
+            visibility: visible;
         }
 
-        .close-menu{
+        .overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .close-menu {
             display: block;
             position: absolute;
-            background: transparent;
-            width: 44px;
-            height: 44px;
-            top: 0;
-            right: -44px;
-            z-index: 2;
+            width: 25px;
+            height: 25px;
+            top: 10px;
+            right: 15px;
+            z-index: 3;
             cursor: pointer;
-            background: #fff;
-            border-radius: 0 3px 3px 0;  
+            /* background: #fff; */
+            border-radius: 50%;
         }
+
         .close-menu:before,
-        .close-menu:after{
+        .close-menu:after {
             content: "";
             display: block;
             position: absolute;
             height: 2px;
-            width: 66%;
-            background: #000;
-            top: 21px;
-            left: 17%;
+            width: 15px;
+            background: #62638C;
+            top: 12px;
+            left: 5px;
             transform: rotate(45deg);
         }
-        .close-menu:after{
-            transform:rotate(-45deg);
+
+        .close-menu:after {
+            transform: rotate(-45deg);
         }
+
         .toc {
             width: 400px;
             height: 100vh;
             background: #f5f5f5;
             padding: 0 0 15px;
-            resize: horizontal;
-            min-width:270px;
+            min-width: 270px;
             max-width: calc(100% - 44px);
-            position:absolute;
-            left:0;
-            top:0;
+            position: absolute;
+            left: 0;
+            top: 0;
             z-index: 2;
             transition: all .3s ease-in-out;
-            box-shadow: 0 0 40px -15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.6);
         }
-        .toc.hidden{
-            left:-400px;
+
+        .toc.hidden {
+            left: -400px;
         }
 
         .toc-header {
             display: flex;
-            flex-flow:column nowrap;
-            position:fixed;
-            flex:0 0 auto;
-            top:0;
-            left:0;
+            flex-flow: column nowrap;
+            position: fixed;
+            flex: 0 0 auto;
+            top: 0;
+            left: 0;
             width: 48px;
-            height:100vh;
-            background:#f1f1f5;
-            z-index:3;
-            border-right:1px solid #eee;
+            height: 100vh;
+
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f1f1f5+100 */
+            background: rgb(255, 255, 255);
+            /* Old browsers */
+            background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 245, 1) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 245, 1) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 245, 1) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f1f1f5', GradientType=1);
+            /* IE6-9 */
+            box-shadow: -5px 0 30px -15px rgba(0, 0, 0, .5) inset;
+            z-index: 3;
+            border-right: 1px solid #eee;
         }
 
         .toc h2 {
@@ -127,34 +143,35 @@
             color: #454545;
             display: block;
             height: 48px;
-            width:48px;
+            width: 48px;
             text-decoration: none;
             background-size: 24px;
             background-position: center;
             background-repeat: no-repeat;
             transition: all .15s ease-in-out;
-            border-width:1px;
-            border-style:solid;
+            border-width: 1px;
+            border-style: solid;
             border-color: transparent #eee transparent transparent;
         }
+
         .toc h2:first-of-type a {
-            border-top:0;
+            border-top: 0;
         }
 
         .toc h2 a:hover,
         .toc h2 a:focus {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, .75);
         }
 
         .toc h2 a.active {
             background-color: #fff;
-            border-color:#eee #fff #eee transparent;
+            border-color: #eee #fff #eee transparent;
         }
+
         .toc.hidden h2 a.active {
             background-color: #fff;
-            border-color:#eee #eee #eee transparent;
+            border-color: #eee #eee #eee transparent;
         }
-        
 
         .toc ul {
             margin: 0;
@@ -171,14 +188,14 @@
         .toc>ul,
         #searchList {
             margin: 0;
-            padding: 15px;
+            padding: 45px 15px 15px;
             height: 100vh;
-            width:calc(100% - 48px);
+            width: calc(100% - 48px);
             overflow: auto;
             background: #fff;
             position: relative;
             -webkit-overflow-scrolling: touch;
-            left:48px;
+            left: 48px;
         }
 
         .toc ul a {
@@ -189,20 +206,21 @@
             cursor: pointer;
             transition: all .15s ease-in-out;
             outline: 0 #ebebeb;
-            border-radius:3px;
+            border-radius: 3px;
         }
 
         .toc ul a:hover {
             color: #5EAF62;
         }
-        .toc ul a:focus{
-            background:  #aaa;
-            color:#fff !important;
+
+        .toc ul a:focus {
+            background: #aaa;
+            color: #fff !important;
         }
 
         .toc ul a.active {
-            background:  #62638C;
-            color:#fff;
+            background: #62638C;
+            color: #fff;
         }
 
         .toc li>i {
@@ -271,14 +289,15 @@
             color: #62638C;
             border-radius: 50%;
         }
-        
-                #alphabet ul li a:hover {
-                    background:#62638C;
-                    color:#fff;
-                }
 
-                #alphabet ul li a:active,#alphabet ul li a:focus {
-            box-shadow:0 0 1px rgba(0,0,0,1) inset;
+        #alphabet ul li a:hover {
+            background: #62638C;
+            color: #fff;
+        }
+
+        #alphabet ul li a:active,
+        #alphabet ul li a:focus {
+            box-shadow: 0 0 1px rgba(0, 0, 0, 1) inset;
         }
 
         .indexLetter {
@@ -308,9 +327,9 @@
             -webkit-overflow-scrolling: touch;
             overflow: auto;
             height: 100vh;
-            left:48px;
-            width:calc(100% - 48px);
-            z-index:0;
+            left: 48px;
+            width: calc(100% - 48px);
+            z-index: 0;
         }
 
         #article {
@@ -327,17 +346,19 @@
 
         #search {
             display: none;
-            position:relative;
-            width:calc(100% - 48px);
-            left:48px;
+            position: relative;
+            width: calc(100% - 48px);
+            left: 48px;
+            overflow:hidden;
         }
 
         #searchList {
             display: block;
             list-style: none;
             height: calc(100vh - 44px);
-            width:100%;
-            left:0;
+            padding: 15px;
+            width: 100%;
+            left: 0;
         }
 
         .autocomplete {
@@ -345,30 +366,37 @@
             border: 0;
             border-bottom: 1px solid #ebebeb;
             width: 100%;
-            padding: 0 15px;
+            padding: 0 45px 0 15px;
             position: relative;
-            z-index:2;
+            z-index: 2;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 100%;
-            transition:all .15s ease-in-out;
+            transition: all .15s ease-in-out;
         }
 
         ::-webkit-input-placeholder {
             color: #bbb;
         }
+
         /* Firefox < 19 */
+
         :-moz-placeholder {
             color: #bbb;
         }
+
         /* Firefox > 19 */
+
         ::-moz-placeholder {
             color: #bbb;
         }
+
         /* Internet Explorer 10 */
+
         :-ms-input-placeholder {
             color: #bbb;
         }
-/* 
+
+        /* 
         :focus::-webkit-input-placeholder {
             color: transparent;
         }
@@ -381,12 +409,11 @@
         :focus:-ms-input-placeholder {
             color: transparent;
         } */
-        
-        
 
         .autocomplete:focus {
-            box-shadow: 0 5px 9px -5px #62638C;
+            box-shadow: 0 0px 20px -5px #62638C;
         }
+
 
         @media print {
             .toc {
@@ -403,7 +430,6 @@
                 overflow: auto !important;
             }
         }
-
     </style>
 </HEAD>
 
@@ -422,6 +448,6 @@
                     <a href="#index" title="Index" class="toc-toggle " style="background-image: url(./assets/images/icons/index.png);">&nbsp;</a>
                 </h2>
                 <h2>
-                    <a href="" title="Print" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);">&nbsp;</a>
+                    <a href="" title="Print article" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);">&nbsp;</a>
                 </h2>
             </div>

@@ -14,7 +14,7 @@
 <script>
     $(function () {
         if (window.location.toString().indexOf('?') !== -1) {
-            let url = window.location.toString().substring(window.location.toString().indexOf('?') + 1).replace('index.html', '');
+            var url = window.location.toString().substring(window.location.toString().indexOf('?') + 1).replace('index.html', '');
             url = '/articles/' + url;
             document.getElementById('article').contentWindow.location = url;
         }
@@ -23,8 +23,7 @@
     $('.toc ul a[href]').click(function () {
         $('.toc ul a[href]').removeClass('active');
         $(this).addClass('active');
-    }
-    );
+    });
     $('.toc li').each(function () {
         var li = $(this);
 
@@ -54,6 +53,7 @@
 
         if (!$(e.target).closest('.toc, .toc *, .toc-toggle').length) {
             $('.toc, .overlay').addClass('hidden');
+            $('.toc h2 a').removeClass('active');
         }
         else if ($(e.target).closest('.toc-toggle, .toc h2 a').length) {
             e.preventDefault();
@@ -82,6 +82,7 @@
 
         $('.toc').addClass('hidden');
         $('.overlay').addClass('hidden');
+            $('.toc h2 a').removeClass('active');
     })
     function printFrame(e) {
         var beforePrint = function () {
@@ -138,28 +139,28 @@
 
 
 
-    let indexList = document.querySelectorAll('#index li a[href]');
-    let pages = [...indexList];
+    var indexList = document.querySelectorAll('#index li a[href]');
+    var pages = indexList.toArray();
 
-    pages = pages.filter(page => {
+    pages = pages.filter(function (page) {
         return page.getAttribute("href").indexOf('#') == -1;
     });
 
-    let autocompleteInput = document.querySelector(".autocomplete");
-    let autocompleteValue = autocompleteInput.value;
+    var autocompleteInput = document.querySelector(".autocomplete");
+    var autocompleteValue = autocompleteInput.value;
 
     autocompleteInput.addEventListener("input", showRes);
 
-    let autoCompleteList = document.querySelector('#searchList');
-    let autoList = pages
-        .map(page => '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>');
+    var autoCompleteList = document.querySelector('#searchList');
+    var autoList = pages
+        .map(function (page) { '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>'; });
 
     autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
 
     function showRes() {
         autocompleteValue = autocompleteInput.value;
 
-        let coutriesComplete = pages.filter(page => {
+        var coutriesComplete = pages.filter(function (page) {
             return page.textContent
                 .toUpperCase()
                 .indexOf(autocompleteValue.toUpperCase()) !== -1
@@ -170,7 +171,10 @@
         });
 
         autoList = coutriesComplete
-            .map(page => '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>');
+            .map(function (page) {
+                '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>';            
+});
+
 
         autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
     }
@@ -178,28 +182,28 @@
     function frameLoad(frame) {
         var pageTitle = document.getElementById("article").contentDocument.title;
         document.title = pageTitle;
-        let obj = {};
-        let loc = document.getElementById("article").contentWindow.location.toString();
-        let url = loc.substring(loc.lastIndexOf('/') + 1);
+        var obj = {};
+        var loc = document.getElementById("article").contentWindow.location.toString();
+        var url = loc.substring(loc.lastIndexOf('/') + 1);
         history.replaceState(obj, pageTitle, '?' + url);
 
-        const tocLinks = $('.toc li a[href]');
+        var tocLinks = $('.toc li a[href]');
 
         tocLinks.each(function () {
-            const link = $(this);
+            var link = $(this);
 
             if (frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1, frame.contentWindow.location.toString().indexOf('#')) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1) || frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1)) {
                 tocLinks.removeClass('active');
                 setTimeout(function () {
                     link.addClass('active');
-                    const li = link.parents().filter('li');
+                    var li = link.parents().filter('li');
                     li.removeClass('closed').addClass('open');
                     li.each(function () { $(this).children('ul').first().slideDown(300) });
                 }, 0);
 
             }
         });
-        if($(window).width() < 1024){
+        if ($(window).width() < 1024) {
             $('.toc, .overlay').addClass('hidden');
         }
     }

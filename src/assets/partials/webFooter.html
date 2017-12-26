@@ -135,13 +135,9 @@
     }
     Index('#index');
 
-
-
-
-
-    var indexList = document.querySelectorAll('#index li a[href]');
-    var pages = indexList.toArray();
-
+    var indexList = $('#index li a[href]').toArray();
+    var pages = indexList;
+console.log(pages);
     pages = pages.filter(function (page) {
         return page.getAttribute("href").indexOf('#') == -1;
     });
@@ -153,7 +149,7 @@
 
     var autoCompleteList = document.querySelector('#searchList');
     var autoList = pages
-        .map(function (page) { '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>'; });
+        .map(function(page) { return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>'; });
 
     autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
 
@@ -172,7 +168,7 @@
 
         autoList = coutriesComplete
             .map(function (page) {
-                '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>';            
+                return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>';            
 });
 
 

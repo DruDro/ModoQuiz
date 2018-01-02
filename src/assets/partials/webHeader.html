@@ -65,6 +65,10 @@
             /* background: #fff; */
             border-radius: 50%;
         }
+        .pinned .close-menu {
+            opacity:.5;
+            cursor:not-allowed;
+        }
 
         .close-menu:before,
         .close-menu:after {
@@ -83,6 +87,29 @@
             transform: rotate(-45deg);
         }
 
+        .pin-menu {
+            display: none;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: 10px;
+            right: 45px;
+            z-index: 3;
+            cursor: pointer;
+            /* background: #fff; */
+            background-position:center;
+            background-size: 65%;
+            background-repeat: no-repeat;
+            background-image:url(../assets/images/icons/push-pin.png);
+        }
+        .pin-menu.pinned {
+            background-image:url(../assets/images/icons/pin.png);
+        }
+        @media screen and (min-width: 1024px) {
+            .pin-menu {
+                display:block;
+            }
+        }
         .toc {
             width: 400px;
             height: 100vh;
@@ -94,12 +121,16 @@
             left: 0;
             top: 0;
             z-index: 2;
-            transition: all .3s ease-in-out;
+            transition: all .5s cubic-bezier(.68,.09,.21,1.29);
             box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.6);
         }
 
         .toc.hidden {
             left: -400px;
+        }
+        .toc.pinned {
+            left: 0;
+            box-shadow:0 0 10px 0px rgba(0, 0, 0, 0.3);
         }
 
         .toc-header {
@@ -113,16 +144,7 @@
             height: 100vh;
 
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f1f1f5+100 */
-            background: rgb(255, 255, 255);
-            /* Old browsers */
-            background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 245, 1) 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 245, 1) 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 245, 1) 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f1f1f5', GradientType=1);
-            /* IE6-9 */
+            background: #fefefe;
             box-shadow: -5px 0 30px -15px rgba(0, 0, 0, .5) inset;
             z-index: 3;
             border-right: 1px solid #eee;
@@ -188,8 +210,9 @@
         .toc>ul,
         #searchList {
             margin: 0;
-            padding: 45px 15px 15px;
-            height: 100vh;
+            padding: 15px;
+            height: calc(100vh - 44px);
+            top:44px;
             width: calc(100% - 48px);
             overflow: auto;
             background: #fff;
@@ -332,6 +355,11 @@
             z-index: 0;
         }
 
+        .frameholder.pinned {            
+            left: 400px;
+            width: calc(100% - 400px);
+        }
+
         #article {
             display: block;
             height: 100%;
@@ -359,14 +387,15 @@
             padding: 15px;
             width: 100%;
             left: 0;
+            top:0;
         }
 
         .autocomplete {
             height: 44px;
             border: 0;
             border-bottom: 1px solid #ebebeb;
-            width: 100%;
-            padding: 0 45px 0 15px;
+            width: calc(100% - 85px);
+            padding: 0 15px 0 15px;
             position: relative;
             z-index: 2;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -436,6 +465,7 @@
 <body>
     <div class="wrapper">
         <div class="toc hidden">
+            <span class="pin-menu"></span>
             <span class="close-menu"></span>
             <div class="toc-header">
                 <h2>

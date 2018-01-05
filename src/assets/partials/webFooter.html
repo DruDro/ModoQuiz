@@ -54,15 +54,13 @@
             });
         }
     });
-    $(document).on("mouseup touchend", function (e) {
-
-        if (!$(e.target).closest('.toc, .toc *, .toc-toggle').length) {
+    $(document).on("click touch", function(e) {
+        if (!$(e.target).closest('.toc, .toc *, .toc-js-toggle').length) {
             $('.toc, .overlay').addClass('hidden');
-            $('.toc h2 a').removeClass('active');
+            $('.toc-js-toggle').removeClass('active');
         }
-        else if ($(e.target).closest('.toc-toggle, .toc h2 a').length) {
+        else if ($(e.target).closest('.toc-js-toggle').length) {
             e.preventDefault();
-
             var tabLink = $(e.target),
                 tab = $(tabLink.attr("href"));
 
@@ -83,6 +81,7 @@
             if (!$('.pin-menu').hasClass('pinned')) {
                 $('.toc').addClass('hidden');
                 $('.overlay').addClass('hidden');
+                $('.toc h2 a').removeClass('active');
             }
         }
         else if ($(e.target).closest('.pin-menu').length) {
@@ -152,7 +151,6 @@
 
     var indexList = $('#index li a[href]').toArray();
     var pages = indexList;
-    console.log(pages);
     pages = pages.filter(function (page) {
         return page.getAttribute("href").indexOf('#') == -1;
     });

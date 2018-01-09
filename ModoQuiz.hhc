@@ -67,6 +67,10 @@
 				<param name="Local" value="articles\settings.htm">
 				</OBJECT>
 		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Notifications">
+			<param name="Local" value="articles\notifications.htm">
+			</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Developer Reference">
 		</OBJECT>

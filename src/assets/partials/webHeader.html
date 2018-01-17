@@ -156,7 +156,7 @@
         }
 
         .toc h2 a {
-            padding: 15px;
+            padding: 0;
             font-weight: 400;
             text-decoration: none;
             color: #454545;
@@ -165,12 +165,26 @@
             width: 48px;
             text-decoration: none;
             background-size: 24px;
-            background-position: center;
+            background-position: center 4px;
             background-repeat: no-repeat;
             transition: all .15s ease-in-out;
             border-width: 1px;
             border-style: solid;
             border-color: transparent #eee transparent transparent;
+            position: relative;
+            text-align: center;
+        }
+        .toc h2 a:before {
+            content: attr(data-caption);
+            font-size: 9px;
+            font-weight: 700;
+            position: absolute;
+            width: 100%;
+            bottom: 4px;
+            line-height: 1em;
+            left: 0;
+            display: block;
+            text-transform: uppercase;
         }
 
         .toc h2:first-of-type a {
@@ -466,15 +480,15 @@
             <span class="close-menu"></span>
             <div class="toc-header">
                 <h2>
-                    <a href="#toc" title="Table of Contents" class=" toc-js-toggle " style="background-image: url(./assets/images/icons/tree.png);">&nbsp;</a>
+                    <a href="#toc" data-caption="ToC" title="Table of Contents" class=" toc-js-toggle " style="background-image: url(./assets/images/icons/tree.png);"></a>
                 </h2>
                 <h2>
-                    <a href="#search" title="Search" class="toc-js-toggle " style="background-image: url(./assets/images/icons/search.png);">&nbsp;</a>
+                    <a href="#search" data-caption="Search" title="Search" class="toc-js-toggle " style="background-image: url(./assets/images/icons/search.png);"></a>
                 </h2>
                 <h2>
-                    <a href="#index" title="Index" class="toc-js-toggle " style="background-image: url(./assets/images/icons/index.png);">&nbsp;</a>
+                    <a href="#index"  data-caption="Index" title="Index (A&Implies;Z)" class="toc-js-toggle " style="background-image: url(./assets/images/icons/index.png);"></a>
                 </h2>
                 <h2>
-                    <a href="" title="Print article" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);">&nbsp;</a>
+                    <a href=""  data-caption="Print" title="Print Article" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);"></a>
                 </h2>
             </div>

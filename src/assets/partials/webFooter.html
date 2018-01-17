@@ -13,12 +13,12 @@
 <script src="./assets/jquery-3.2.1.min.js"></script>
 <script>
     $(function () {
-        if (window.location.toString().indexOf('?') !== -1) {
+        if (window.location.toString().indexOf('#/') !== -1) {
             var url = window.location
                 .toString()
                 .substring(window.location
                     .toString()
-                    .indexOf('?') + 1)
+                    .lastIndexOf('#/') +2)
                 .replace('index.html', '');
             url = '/articles/' + url;
             document.getElementById('article').contentWindow.location = url;
@@ -169,7 +169,7 @@
     function showRes() {
         autocompleteValue = autocompleteInput.value;
 
-        var coutriesComplete = pages.filter(function (page) {
+        var completedList = pages.filter(function (page) {
             return page.textContent
                 .toUpperCase()
                 .indexOf(autocompleteValue.toUpperCase()) !== -1
@@ -179,7 +179,7 @@
                     .indexOf(autocompleteValue.toUpperCase()) !== -1
         });
 
-        autoList = coutriesComplete
+        autoList = completedList
             .map(function (page) {
                 return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>';
             });
@@ -194,7 +194,7 @@
         var obj = {};
         var loc = document.getElementById("article").contentWindow.location.toString();
         var url = loc.substring(loc.lastIndexOf('/') + 1);
-        history.replaceState(obj, pageTitle, '?' + url);
+        history.replaceState(obj, pageTitle, '#/' + url);
 
         var tocLinks = $('.toc li a[href]');
 

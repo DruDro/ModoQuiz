@@ -65,9 +65,10 @@
             /* background: #fff; */
             border-radius: 50%;
         }
+
         .pinned .close-menu {
-            opacity:.5;
-            cursor:not-allowed;
+            opacity: .5;
+            cursor: not-allowed;
         }
 
         .close-menu:before,
@@ -97,19 +98,22 @@
             z-index: 3;
             cursor: pointer;
             /* background: #fff; */
-            background-position:center;
+            background-position: center;
             background-size: 65%;
             background-repeat: no-repeat;
-            background-image:url(./assets/images/icons/push-pin.png);
+            background-image: url(./assets/images/icons/push-pin.png);
         }
+
         .pin-menu.pinned {
-            background-image:url(./assets/images/icons/pin.png);
+            background-image: url(./assets/images/icons/pin.png);
         }
+
         @media screen and (min-width: 1024px) {
             .pin-menu {
-                display:block;
+                display: block;
             }
         }
+
         .toc {
             width: 400px;
             height: 100vh;
@@ -121,16 +125,17 @@
             left: 0;
             top: 0;
             z-index: 2;
-            transition: all .5s cubic-bezier(.68,.09,.21,1.29);
+            transition: all .5s cubic-bezier(.68, .09, .21, 1.29);
             box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.6);
         }
 
         .toc.hidden {
             left: -400px;
         }
+
         .toc.pinned {
             left: 0;
-            box-shadow:0 0 10px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.3);
         }
 
         .toc-header {
@@ -174,6 +179,7 @@
             position: relative;
             text-align: center;
         }
+
         .toc h2 a:before {
             content: attr(data-caption);
             font-size: 9px;
@@ -223,7 +229,7 @@
             margin: 0;
             padding: 15px;
             height: calc(100vh - 44px);
-            top:44px;
+            top: 44px;
             width: calc(100% - 48px);
             overflow: auto;
             background: #fff;
@@ -366,7 +372,7 @@
             z-index: 0;
         }
 
-        .frameholder.pinned {            
+        .frameholder.pinned {
             left: 400px;
             width: calc(100% - 400px);
         }
@@ -388,7 +394,7 @@
             position: relative;
             width: calc(100% - 48px);
             left: 48px;
-            overflow:hidden;
+            overflow: hidden;
         }
 
         #searchList {
@@ -398,7 +404,7 @@
             padding: 15px;
             width: 100%;
             left: 0;
-            top:0;
+            top: 0;
         }
 
         .autocomplete {
@@ -486,9 +492,9 @@
                     <a href="#search" data-caption="Search" title="Search" class="toc-js-toggle " style="background-image: url(./assets/images/icons/search.png);"></a>
                 </h2>
                 <h2>
-                    <a href="#index"  data-caption="Index" title="Index (A&Implies;Z)" class="toc-js-toggle " style="background-image: url(./assets/images/icons/index.png);"></a>
+                    <a href="#index" data-caption="Index" title="Index (A&Implies;Z)" class="toc-js-toggle " style="background-image: url(./assets/images/icons/index.png);"></a>
                 </h2>
                 <h2>
-                    <a href=""  data-caption="Print" title="Print Article" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);"></a>
+                    <a href="" data-caption="Print" title="Print Article" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);"></a>
                 </h2>
             </div>

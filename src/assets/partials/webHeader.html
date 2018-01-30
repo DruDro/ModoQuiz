@@ -89,7 +89,7 @@
         }
 
         .pin-menu {
-            display: none;
+            display: block;
             position: absolute;
             width: 25px;
             height: 25px;
@@ -106,12 +106,6 @@
 
         .pin-menu.pinned {
             background-image: url(./assets/images/icons/pin.png);
-        }
-
-        @media screen and (min-width: 1024px) {
-            .pin-menu {
-                display: block;
-            }
         }
 
         .toc {
@@ -462,7 +456,7 @@
 
 
         @media print {
-            .toc {
+            body * {
                 display: none;
             }
             html,
@@ -474,6 +468,8 @@
                 height: auto !important;
                 display: block !important;
                 overflow: auto !important;
+                width:100%!important;
+                left:0!important
             }
         }
     </style>
@@ -495,6 +491,6 @@
                     <a href="#index" data-caption="Index" title="Index (A&Implies;Z)" class="toc-js-toggle " style="background-image: url(./assets/images/icons/index.png);"></a>
                 </h2>
                 <h2>
-                    <a href="" data-caption="Print" title="Print Article" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);"></a>
+                    <a href="" data-caption="Print" title="Print Article" id="printBtn" onclick="printFrame()" style="background-image: url(./assets/images/icons/icons8-print.png);"></a>
                 </h2>
             </div>

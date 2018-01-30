@@ -1,218 +1,226 @@
-                <div id="search">
-                    <input type="text" class="autocomplete" placeholder="Search">
-                    <ul id="searchList"></ul>
-                </div>
-            </div>
-            <div class="overlay hidden"></div>
-            <div class="frameholder">
-                <iframe src="articles/overview.htm" frameborder="0" id="article" name="article" onLoad="frameLoad(this)"></iframe>
-            </div>
-        </div>
+<div id="search">
+    <input type="search" class="autocomplete" placeholder="Search">
+    <ul id="searchList"></ul>
+</div>
+</div>
+<div class="overlay hidden"></div>
+<div class="frameholder">
+    <iframe src="articles/overview.htm" frameborder="0" id="article" name="article" onLoad="frameLoad(this)"></iframe>
+</div>
+</div>
 
 
-        <script src="./assets/jquery-3.2.1.min.js"></script>
-        <script>
-            $(function () {
-                if(window.location.toString().indexOf('#/') !== -1) {
-                    var url = window.location
-                        .toString()
-                        .substring(window.location
-                            .toString()
-                            .lastIndexOf('#/') + 2)
-                        .replace('index.html', '');
-                    url = '/articles/' + url;
-                    document.getElementById('article').contentWindow.location = url;
-                }
-            });
+<script src="./assets/jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        var menuPinned = localStorage.getItem("pinned");
+        if (menuPinned !== "false") {
+            $('[href="#toc"]:first').click().promise().done(function () { $('.pin-menu:first').click() });
+        }
+        if (window.location.toString().indexOf('#/') !== -1) {
+            var url = window.location
+                .toString()
+                .substring(window.location
+                    .toString()
+                    .lastIndexOf('#/') + 2)
+                .replace('index.html', '');
+            url = '/articles/' + url;
+            document.getElementById('article').contentWindow.location = url;
+        }
+    });
 
-            $('.toc ul a[href]').click(function () {
-                $('.toc ul a[href]').removeClass('active');
-                $(this).addClass('active');
-            });
-            $('.toc li').each(function () {
-                var li = $(this);
+    $('.toc ul a[href]').click(function () {
+        $('.toc ul a[href]').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('.toc li').each(function () {
+        var li = $(this);
 
-                li.prepend('<i></i>');
+        li.prepend('<i></i>');
 
-                if ($(this).children('ul').length) {
-                    li.addClass('folder closed');
+        if ($(this).children('ul').length) {
+            li.addClass('folder closed');
 
-                    var toggler = li.children('i, a');
+            var toggler = li.children('i, a');
 
-                    toggler.click(function (e) {
-                        if (li.hasClass('open') && !$(this).is('a')) {
-                            li.removeClass('open').addClass('closed');
-                            li.children('ul').first().slideUp(300);
-                        } else {
-                            li.removeClass('closed').addClass('open');
-                            li.children('ul').first().slideDown(300);
-                            if (!$(this).attr("href") || $(this).attr("href") == "#") {
-                                e.preventDefault();
-                            }
-                        }
-                    });
-                }
-            });
-            $(document).on("click touch", function (e) {
-                if (!$(e.target).closest('.toc, .toc *, .toc-js-toggle').length) {
-                    $('.toc, .overlay').addClass('hidden');
-                    $('.toc-js-toggle').removeClass('active');
-                }
-                else if ($(e.target).closest('.toc-js-toggle').length) {
-                    e.preventDefault();
-                    var tabLink = $(e.target),
-                        tab = $(tabLink.attr("href"));
-
-                    tabLink.addClass('active')
-                        .closest('h2')
-                        .siblings()
-                        .children('a').removeClass('active');
-
-                    tab.show().siblings('ul, #search').hide();
-                    $(".autocomplete").focus();
-                    $('.toc').removeClass('hidden');
-                    if (!$('.pin-menu').hasClass('pinned')) {
-                        $('.overlay').removeClass('hidden');
-                    }
-                    return false;
-                }
-                else if ($(e.target).closest('.close-menu').length) {
-                    if (!$('.pin-menu').hasClass('pinned')) {
-                        $('.toc').addClass('hidden');
-                        $('.overlay').addClass('hidden');
-                        $('.toc h2 a').removeClass('active');
+            toggler.click(function (e) {
+                if (li.hasClass('open') && !$(this).is('a')) {
+                    li.removeClass('open').addClass('closed');
+                    li.children('ul').first().slideUp(300);
+                } else {
+                    li.removeClass('closed').addClass('open');
+                    li.children('ul').first().slideDown(300);
+                    if (!$(this).attr("href") || $(this).attr("href") == "#") {
+                        e.preventDefault();
                     }
                 }
-                else if($(e.target).closest('.pin-menu').length) {
-                    $('.pin-menu').toggleClass('pinned');
-                    $('.toc').toggleClass('pinned');
-                    $('.overlay').toggleClass('hidden');
-                    $('.frameholder').toggleClass('pinned');
-                }
             });
-            $(window).on("resize", function () {
-                if (!$('.pin-menu').hasClass('pinned')) {
-                    $('.toc').addClass('hidden');
-                    $('.overlay').addClass('hidden');
-                    $('.toc h2 a').removeClass('active');
-                }
-            })
-            function printFrame(e) {
-                var beforePrint = function () {
-                    window.frames["article"].focus();
-                    window.frames["article"].print();
-                };
+        }
+    });
+    $(document).on("click touchend", function (e) {
+        if (!$(e.target).closest('.toc, .toc *, .toc-js-toggle').length) {
+            $('.toc, .overlay').addClass('hidden');
+            $('.toc-js-toggle').removeClass('active');
+        }
+        else if ($(e.target).closest('.toc-js-toggle').length) {
+            e.preventDefault();
+            var tabLink = $(e.target),
+                tab = $(tabLink.attr("href"));
 
-                if (window.matchMedia) {
-                    var mediaQueryList = window.matchMedia('print');
-                    mediaQueryList.addListener(function (mql) {
-                        if (mql.matches) {
-                            beforePrint();
-                        } else {
-                            afterPrint();
-                        }
-                    });
-                }
+            tabLink.addClass('active')
+                .closest('h2')
+                .siblings()
+                .children('a').removeClass('active');
 
-                window.onbeforeprint = beforePrint();
-                window.onafterprint = afterPrint();
+            tab.show().siblings('ul, #search').hide();
+            $(".autocomplete").focus();
+            $('.toc').removeClass('hidden');
+            if (!$('.pin-menu').hasClass('pinned')) {
+                $('.overlay').removeClass('hidden');
             }
-
-
-            function Index(list) {
-                var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
-                var HTMLAlphabet = $('<li id="alphabet"></li>');
-                var HTMLAlphabetUL = $('<ul></ul>');
-                for (var i = 0; i < alphabet.length; i++) {
-                    var firstOfI = $(list)
-                        .children('li')
-                        .toArray()
-                        .filter(function (item) {
-                            return $(item).text().charAt(1) == alphabet[i];
-                        });
-                    firstOfI = firstOfI[0];
-
-                    $('<li class="indexLetter"><a name="' + alphabet[i] + '"></a><h3>' + alphabet[i] + '</h3></li>').insertBefore(firstOfI);
-                    if (firstOfI) {
-                        HTMLAlphabetUL
-                            .append('<li><a href="#' + alphabet[i] + '">' + alphabet[i] + '</a></li>');
-                    } else {
-                        HTMLAlphabetUL
-                            .append('<li><span>' + alphabet[i] + '</span></li>');
-                    }
-
-                }
-                HTMLAlphabet.append(HTMLAlphabetUL);
-                $('#index').prepend(HTMLAlphabet);
+            return false;
+        }
+        else if ($(e.target).closest('.close-menu').length) {
+            if (!$('.pin-menu').hasClass('pinned')) {
+                $('.toc').addClass('hidden');
+                $('.overlay').addClass('hidden');
+                $('.toc h2 a').removeClass('active');
             }
-            Index('#index');
+        }
+        else if ($(e.target).closest('.pin-menu').length) {
+            $('.pin-menu').toggleClass('pinned');
+            $('.toc').toggleClass('pinned').removeClass('hidden');
+            if ($('.pin-menu').hasClass('pinned')) {
+                $('.overlay').addClass('hidden');
+            } else { $('.overlay').removeClass('hidden'); }
+            $('.frameholder').toggleClass('pinned');
+            localStorage.setItem("pinned", "" + $('.pin-menu:first').hasClass('pinned'));
+            return false;
+        }
+    });
+    $(window).on("resize", function () {
+        if (!$('.pin-menu').hasClass('pinned')) {
+            $('.toc').addClass('hidden');
+            $('.overlay').addClass('hidden');
+            $('.toc h2 a').removeClass('active');
+        }
+    })
+    function printFrame(e) {
+        var beforePrint = function () {
+            window.frames["article"].focus();
+            window.frames["article"].print();
+        };
 
-            var indexList = $('#index li a[href]').toArray();
-            var pages = indexList;
-            pages = pages.filter(function (page) {
-                return page.getAttribute("href").indexOf('#') == -1;
+        if (window.matchMedia) {
+            var mediaQueryList = window.matchMedia('print');
+            mediaQueryList.addListener(function (mql) {
+                if (mql.matches) {
+                    beforePrint();
+                } else {
+                    afterPrint();
+                }
             });
+        }
 
-            var autocompleteInput = document.querySelector(".autocomplete");
-            var autocompleteValue = autocompleteInput.value;
+        window.onbeforeprint = beforePrint();
+        window.onafterprint = afterPrint();
+    }
 
-            autocompleteInput.addEventListener("input", showRes);
 
-            var autoCompleteList = document.querySelector('#searchList');
-            var autoList = pages
-                .map(function (page) { return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>'; });
-
-            autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
-
-            function showRes() {
-                autocompleteValue = autocompleteInput.value;
-
-                var completedList = pages.filter(function(page) {
-                    return page.textContent
-                        .toUpperCase()
-                        .indexOf(autocompleteValue.toUpperCase()) !== -1
-                        || page.getAttribute("href")
-                            .slice(8 - page.getAttribute("href").indexOf('articles')) // 'articles'.length = 8
-                            .toUpperCase()
-                            .indexOf(autocompleteValue.toUpperCase()) !== -1
+    function Index(list) {
+        var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+        var HTMLAlphabet = $('<li id="alphabet"></li>');
+        var HTMLAlphabetUL = $('<ul></ul>');
+        for (var i = 0; i < alphabet.length; i++) {
+            var firstOfI = $(list)
+                .children('li')
+                .toArray()
+                .filter(function (item) {
+                    return $(item).text().charAt(1) == alphabet[i];
                 });
+            firstOfI = firstOfI[0];
 
-                autoList = completedList
-                    .map(function (page) {
-                        return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>';
-                    });
-
-                autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
+            $('<li class="indexLetter"><a name="' + alphabet[i] + '"></a><h3>' + alphabet[i] + '</h3></li>').insertBefore(firstOfI);
+            if (firstOfI) {
+                HTMLAlphabetUL
+                    .append('<li><a href="#' + alphabet[i] + '">' + alphabet[i] + '</a></li>');
+            } else {
+                HTMLAlphabetUL
+                    .append('<li><span>' + alphabet[i] + '</span></li>');
             }
 
-            function frameLoad(frame) {
-                var pageTitle = document.getElementById("article").contentDocument.title;
-                document.title = pageTitle;
-                var obj = {};
-                var loc = document.getElementById("article").contentWindow.location.toString();
-                var url = loc.substring(loc.lastIndexOf('/') + 1);
-                history.replaceState(obj, pageTitle, '#/' + url);
+        }
+        HTMLAlphabet.append(HTMLAlphabetUL);
+        $('#index').prepend(HTMLAlphabet);
+    }
+    Index('#index');
 
-                var tocLinks = $('.toc li a[href]');
+    var indexList = $('#index li a[href]').toArray();
+    var pages = indexList;
+    pages = pages.filter(function (page) {
+        return page.getAttribute("href").indexOf('#') == -1;
+    });
 
-                tocLinks.each(function () {
-                    var link = $(this);
+    var autocompleteInput = document.querySelector(".autocomplete");
+    var autocompleteValue = autocompleteInput.value;
 
-                    if (frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1, frame.contentWindow.location.toString().indexOf('#')) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1) || frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1)) {
-                        tocLinks.removeClass('active');
-                        setTimeout(function () {
-                            link.addClass('active');
-                            var li = link.parents().filter('li');
-                            li.removeClass('closed').addClass('open');
-                            li.each(function () { $(this).children('ul').first().slideDown(300) });
-                        }, 0);
+    autocompleteInput.addEventListener("input", showRes);
 
-                    }
-                });
-                if ($(window).width() < 1024) {
-                    $('.toc, .overlay').addClass('hidden');
-                }
+    var autoCompleteList = document.querySelector('#searchList');
+    var autoList = pages
+        .map(function (page) { return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>'; });
+
+    autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
+
+    function showRes() {
+        autocompleteValue = autocompleteInput.value;
+
+        var completedList = pages.filter(function (page) {
+            return page.textContent
+                .toUpperCase()
+                .indexOf(autocompleteValue.toUpperCase()) !== -1
+                || page.getAttribute("href")
+                    .slice(8 - page.getAttribute("href").indexOf('articles')) // 'articles'.length = 8
+                    .toUpperCase()
+                    .indexOf(autocompleteValue.toUpperCase()) !== -1
+        });
+
+        autoList = completedList
+            .map(function (page) {
+                return '<li data-page="' + page.getAttribute("href") + '"><i></i><a target="article" href="' + page.getAttribute("href") + '">' + page.textContent + '</a></li>';
+            });
+
+        autoCompleteList.innerHTML = autoList.toString().replace(/,/g, '');
+    }
+
+    function frameLoad(frame) {
+        var pageTitle = document.getElementById("article").contentDocument.title;
+        document.title = pageTitle;
+        var obj = {};
+        var loc = document.getElementById("article").contentWindow.location.toString();
+        var url = loc.substring(loc.lastIndexOf('/') + 1);
+        history.replaceState(obj, pageTitle, '#/' + url);
+
+        var tocLinks = $('.toc li a[href]');
+
+        tocLinks.each(function () {
+            var link = $(this);
+            if (frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1, frame.contentWindow.location.toString().lastIndexOf('#')) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1) || frame.contentWindow.location.toString().substring(frame.contentWindow.location.toString().lastIndexOf('/') + 1) == link.attr("href").substring(link.attr("href").lastIndexOf('\\') + 1)) {
+                tocLinks.removeClass('active');
+                setTimeout(function () {
+                    link.addClass('active');
+                    var li = link.parents().filter('li');
+                    li.removeClass('closed').addClass('open');
+                    li.each(function () { $(this).children('ul').first().slideDown(300) });
+                }, 0);
+
             }
-        </script>
-    </BODY>
+        });
+        if ($(window).width() < 1024) {
+            $('.toc, .overlay').addClass('hidden');
+        }
+    }
+</script>
+</BODY>
+
 </HTML>

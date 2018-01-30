@@ -13,6 +13,12 @@ a {
     &:visited {
         color: #ac4500;
     }
+    &:hover {
+        text-decoration:none;
+    }
+    &[data-fancybox]{
+        text-decoration:none;
+    }
 }
 
 span.link {
@@ -31,6 +37,30 @@ span.link {
     padding: 15px 10px 15px 15px;
     border-left: 4px solid #ffff89;
     color: #000;
+}
+
+a[data-fancybox] {
+    outline: none;
+    img {
+        transition: all .15s ease-in-out;
+        position: relative;
+    }
+    &:hover {
+        img {
+            box-shadow: 0px 14px 14px -7px rgba(0, 0, 0, 0.35);
+            top: 0;
+        }
+    }
+    &:active {
+        img {
+            box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0), 0 0 1px 1px rgba(0, 0, 0, 0.25) inset;
+            border-bottom-color: #eee;
+            top: 2px;
+        }
+    }
+    @media screen and (max-width:667px) {
+        pointer-events: none;
+    }
 }
 
 img {
@@ -54,6 +84,9 @@ img {
         &.l {
             width: 48px;
         }
+        &.xl {
+            width: 72px;
+        }
         &.ref {
             width: 16px;
             margin: 0 15px 0 0;
@@ -65,13 +98,22 @@ img {
     }
     &.screen {
         width: 320px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #f0f0f0 #f0f0f0 #ccc;
+        border-radius: 2px;
+        box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.25);
+        top: 2px;
         &.inline {
             display: inline-block;
             font-size: 0;
             line-height: 0;
             vertical-align: middle;
             margin: 10px 3%;
-            max-width:94%;
+            max-width: 94%;
+        }
+        &.auto {
+            width:auto;
         }
         &.large {
             width: 640px;
@@ -82,7 +124,58 @@ img {
 .flowchart {
     margin: 0 -15px;
     text-align: center;
-    background: #dadada;
+    background: #f9f9f9;
+    ul,ol {
+        list-style:none;
+        margin:0;
+        padding:0;
+        counter-reset:counter;
+        li {
+            padding:10px 0;
+            margin:0;
+            z-index:1;
+            position:relative;
+            &::marker{
+                font-size:2em
+            }
+            &:not(:first-child):before{
+                counter-increment:counter;
+                display:inline;
+                content:counter(counter)".\00a0";
+                font-size:2em;
+                font-weight:700;
+                color:#62638C;
+                position:relative;
+                z-index:2;
+            }
+            &:after{
+                content:"";
+                display:block;
+                margin:20px auto 0;
+                width:40px;
+                height:50px;
+                background-image: url(../assets/images/icons/arrow-down.png);
+                background-repeat: no-repeat;
+                background-position:center center;
+                background-size: contain;
+            }
+            &:last-child:after{
+                display:none;
+            }
+            h2 {
+                font-size: 1.4em;
+                display:inline;
+                margin: 0;
+                padding:0 0 10px;
+            }
+            p {
+                margin:0;
+            }
+            .screen.inline{
+                vertical-align:top;
+            }
+        }
+    }
 }
 
 pre {
@@ -96,6 +189,10 @@ pre {
         padding: 8px 10px;
         border-radius: 2px;
         border: 1px solid #ccc;
+    }
+    &.wrap {
+        white-space: pre-wrap;
+        width: 100%;
     }
 }
 
@@ -176,12 +273,46 @@ table.calls {
 }
 
 .abstract {
-    color:#F68D1E;
-    font-style:italic;
-    text-align:right;
-    padding:15px 0;
+    color: #F68D1E;
+    font-style: italic;
+    text-align: right;
+    padding: 15px 0;
 }
 
-p i, li i {
+p i,
+li i {
     color: #799;
+}
+
+
+/*.screenshots {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: calc(100vw - 60px);
+    margin: 0 auto;
+    position: relative;
+}*/
+
+.video {
+    width: auto;
+    max-width:calc(100vw - 50px);
+    max-height:100vh;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+    &-wrapper {
+        position: relative;
+        margin: 1em auto;
+        max-width:100%;
+    }
+    &-link {
+        display:none;
+    }
+}
+
+figure {
+    margin: 1em auto;
+    width: 820px;
+    max-width: 100%;
 }
